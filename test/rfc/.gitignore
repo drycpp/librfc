@@ -1,0 +1,10 @@
+.deps/
+.libs/
+.dirstamp
+*.a
+*.o
+*.la
+*.lo
+check_feature
+check_module
+check_version

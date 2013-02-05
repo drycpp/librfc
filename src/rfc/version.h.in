@@ -1,0 +1,39 @@
+/* This is free and unencumbered software released into the public domain. */
+
+#ifndef RFC_VERSION_H
+#define RFC_VERSION_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define RFC_VERSION_STRING "@PACKAGE_VERSION@"
+#define RFC_VERSION_MAJOR  @PACKAGE_VERSION_MAJOR@
+#define RFC_VERSION_MINOR  @PACKAGE_VERSION_MINOR@
+#define RFC_VERSION_PATCH  @PACKAGE_VERSION_PATCH@
+
+/**
+ * The librfc version as a NUL-terminated string.
+ */
+extern const char* const rfc_version_string;
+
+/**
+ * The librfc major version.
+ */
+extern const short rfc_version_major;
+
+/**
+ * The librfc minor version.
+ */
+extern const short rfc_version_minor;
+
+/**
+ * The librfc patch level.
+ */
+extern const short rfc_version_patch;
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
+
+#endif /* RFC_VERSION_H */
