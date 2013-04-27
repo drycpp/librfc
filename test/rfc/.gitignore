@@ -5,6 +5,8 @@
 *.o
 *.la
 *.lo
+*.log
+*.trs
 check_feature
 check_module
 check_version

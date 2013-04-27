@@ -4,7 +4,7 @@
 #include <config.h>
 #endif
 
-#include "rfc/version.h"
+#include "version.h"
 
 const char* const rfc_version_string = RFC_VERSION_STRING;
 

@@ -3,6 +3,10 @@
 #ifndef RFC_VERSION_H
 #define RFC_VERSION_H
 
+/**
+ * @file
+ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif

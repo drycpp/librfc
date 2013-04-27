@@ -1,13 +1,13 @@
-AM_CFLAGS       = -Wall -Wextra -fPIC -DPIC -pipe
-AM_CPPFLAGS     = -I$(top_srcdir)/src -iquote $(srcdir)
-AM_LDFLAGS      = -rdynamic
-LDADD           = librfc.la
+AM_CPPFLAGS = -I$(top_srcdir)/src -iquote $(srcdir)
+AM_CXXFLAGS = -Wall -Wextra -pipe
+LDADD       = $(top_srcdir)/src/rfc/librfc.la
+
 lib_LTLIBRARIES = librfc.la
 
 librfc_la_SOURCES =       \
-  feature.c               \
-  module.c                \
-  version.c
+  feature.cc              \
+  module.cc               \
+  version.cc
 
 base_pkgincludedir = $(includedir)/rfc
 
