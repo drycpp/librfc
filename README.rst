@@ -1,6 +1,11 @@
 librfc: RFC implementations for C/C++
 =====================================
 
+.. image:: https://travis-ci.org/bendiken/librfc.png?branch=master
+   :target: https://travis-ci.org/bendiken/librfc
+   :align: right
+   :alt: Travis CI build status
+
 ``librfc`` is a C/C++ shared library containing public domain implementations
 of core RFC data structures and algorithms written in C++11.
 
