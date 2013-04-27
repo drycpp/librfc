@@ -10,7 +10,7 @@
     <doap:bug-database rdf:resource="https://github.com/bendiken/librfc/issues"/>
     <doap:created>2013-02-05</doap:created>
     <doap:description xml:lang="en">
-      Public domain implementations of core RFC specifications in C/C++.
+      Public domain implementations of core RFC specifications for C/C++.
     </doap:description>
     <doap:developer rdf:resource="http://ar.to/#self"/>
     <doap:documenter rdf:resource="http://ar.to/#self"/>
@@ -21,7 +21,7 @@
     <doap:name>librfc</doap:name>
     <doap:platform>C</doap:platform>
     <doap:platform>C++</doap:platform>
-    <doap:shortdesc xml:lang="en">RFC implementations in C/C++</doap:shortdesc>
+    <doap:shortdesc xml:lang="en">RFC implementations for C/C++</doap:shortdesc>
     <foaf:maker rdf:resource="http://ar.to/#self"/>
   </doap:Project>
   <foaf:Person rdf:about="http://ar.to/#self">
