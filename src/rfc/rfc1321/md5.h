@@ -4,6 +4,7 @@
 #define RFC1321_MD5_H
 
 #include <cstdint> /* for std::uint8_t */
+#include <cstring> /* for std::memcmp() */
 #include <utility> /* for std::swap() */
 
 /**
@@ -23,7 +24,7 @@ protected:
 
 public:
   /**
-   * Default constructor.
+   * Default constructor. The structure is all zeroes after construction.
    */
   md5() noexcept {}
 
@@ -51,7 +52,7 @@ public:
   /**
    * Destructor.
    */
-   ~md5() noexcept {}
+  ~md5() noexcept {}
 
   /**
    * Copy assignment operator.
@@ -67,6 +68,48 @@ public:
   md5& operator=(md5&& other) noexcept {
     std::swap(_data, other._data);
     return *this;
+  }
+
+  /**
+   * Equality operator.
+   */
+  bool operator==(const md5& other) const {
+    return std::memcmp(_data, other._data, sizeof(_data)) == 0;
+  }
+
+  /**
+   * Inequality operator.
+   */
+  bool operator!=(const md5& other) const {
+    return std::memcmp(_data, other._data, sizeof(_data)) != 0;
+  }
+
+  /**
+   * Less-than operator.
+   */
+  bool operator<(const md5& other) const {
+    return std::memcmp(_data, other._data, sizeof(_data)) < 0;
+  }
+
+  /**
+   * Less-than-or-equal-to operator.
+   */
+  bool operator<=(const md5& other) const {
+    return std::memcmp(_data, other._data, sizeof(_data)) <= 0;
+  }
+
+  /**
+   * Greater-than operator.
+   */
+  bool operator>(const md5& other) const {
+    return std::memcmp(_data, other._data, sizeof(_data)) > 0;
+  }
+
+  /**
+   * Greater-than-or-equal-to operator.
+   */
+  bool operator>=(const md5& other) const {
+    return std::memcmp(_data, other._data, sizeof(_data)) >= 0;
   }
 };
 
