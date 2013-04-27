@@ -28,3 +28,13 @@ if !DISABLE_RFC3174
   librfc_la_SOURCES       += rfc3174/sha1.cc
   nobase_pkginclude_HEADERS += rfc3174.h rfc3174/sha1.h
 endif
+
+if !DISABLE_RFC3986
+  librfc_la_SOURCES       += rfc3986/uri.cc
+  nobase_pkginclude_HEADERS += rfc3986.h rfc3986/uri.h
+endif
+
+if !DISABLE_RFC4122
+  librfc_la_SOURCES       += rfc4122/uuid.cc
+  nobase_pkginclude_HEADERS += rfc4122.h rfc4122/uuid.h
+endif

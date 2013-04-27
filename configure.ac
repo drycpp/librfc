@@ -76,6 +76,18 @@ AC_ARG_ENABLE([rfc3174],
 AS_IF([test "x$enable_rfc3174" == "xno"], [
   AC_DEFINE([DISABLE_RFC3174], 1, [Define to omit the <rfc/rfc3174.h> module.])])
 AM_CONDITIONAL([DISABLE_RFC3174], [test "x$enable_rfc3174" == "xno"])
+# --enable-rfc3986/--disable-rfc3986
+AC_ARG_ENABLE([rfc3986],
+  [AS_HELP_STRING([--disable-rfc3986], [do not include the RFC 3986 (URI) module])])
+AS_IF([test "x$enable_rfc3986" == "xno"], [
+  AC_DEFINE([DISABLE_RFC3986], 1, [Define to omit the <rfc/rfc3986.h> module.])])
+AM_CONDITIONAL([DISABLE_RFC3986], [test "x$enable_rfc3986" == "xno"])
+# --enable-rfc4122/--disable-rfc4122
+AC_ARG_ENABLE([rfc4122],
+  [AS_HELP_STRING([--disable-rfc4122], [do not include the RFC 4122 (UUID) module])])
+AS_IF([test "x$enable_rfc4122" == "xno"], [
+  AC_DEFINE([DISABLE_RFC4122], 1, [Define to omit the <rfc/rfc4122.h> module.])])
+AM_CONDITIONAL([DISABLE_RFC4122], [test "x$enable_rfc4122" == "xno"])
 
 dnl Check for libraries:
 

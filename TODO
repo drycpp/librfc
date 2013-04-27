@@ -139,8 +139,10 @@ Specs: URIs, URNs, and URLs
   http://tools.ietf.org/html/rfc2141
 - RFC 3986: Uniform Resource Identifier (URI): Generic Syntax
   http://tools.ietf.org/html/rfc3986
-- RFC 4122: A Universally Unique IDentifier (UUID) URN Namespace
+~ RFC 4122: A Universally Unique IDentifier (UUID) URN Namespace
   http://tools.ietf.org/html/rfc4122
+- RFC 5122: Internationalized Resource Identifiers (IRIs) and Uniform Resource Identifiers (URIs) for the Extensible Messaging and Presence Protocol (XMPP)
+  http://tools.ietf.org/html/rfc5122
 - RFC 6874: Representing IPv6 Zone Identifiers in Address Literals and Uniform Resource Identifiers
   http://tools.ietf.org/html/rfc6874
 

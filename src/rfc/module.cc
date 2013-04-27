@@ -16,6 +16,12 @@ static const char* const rfc_module_names[] = {
 #ifndef DISABLE_RFC3174
   "rfc3174",
 #endif
+#ifndef DISABLE_RFC3986
+  "rfc3986",
+#endif
+#ifndef DISABLE_RFC4122
+  "rfc4122",
+#endif
 };
 
 bool
