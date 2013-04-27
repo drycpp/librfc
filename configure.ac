@@ -64,6 +64,18 @@ AC_ARG_ENABLE([unicode],
   [AS_HELP_STRING([--disable-unicode], [omit support for Unicode strings])])
 AS_IF([test "x$enable_unicode" == "xno"],
   [AC_DEFINE([DISABLE_UNICODE], 1, [Define to disable Unicode string support.])])
+# --enable-rfc1321/--disable-rfc1321
+AC_ARG_ENABLE([rfc1321],
+  [AS_HELP_STRING([--disable-rfc1321], [do not include the RFC 1321 (MD5) module])])
+AS_IF([test "x$enable_rfc1321" == "xno"], [
+  AC_DEFINE([DISABLE_RFC1321], 1, [Define to omit the <rfc/rfc1321.h> module.])])
+AM_CONDITIONAL([DISABLE_RFC1321], [test "x$enable_rfc1321" == "xno"])
+# --enable-rfc3174/--disable-rfc3174
+AC_ARG_ENABLE([rfc3174],
+  [AS_HELP_STRING([--disable-rfc3174], [do not include the RFC 3174 (SHA-1) module])])
+AS_IF([test "x$enable_rfc3174" == "xno"], [
+  AC_DEFINE([DISABLE_RFC3174], 1, [Define to omit the <rfc/rfc3174.h> module.])])
+AM_CONDITIONAL([DISABLE_RFC3174], [test "x$enable_rfc3174" == "xno"])
 
 dnl Check for libraries:
 

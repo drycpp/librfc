@@ -39,7 +39,7 @@ Specs: Compression
 Specs: Cryptography
 -------------------
 
-- RFC 1321: The MD5 Message-Digest Algorithm
+~ RFC 1321: The MD5 Message-Digest Algorithm
   http://tools.ietf.org/html/rfc1321
 - RFC 2085: HMAC-MD5 IP Authentication with Replay Prevention
   http://tools.ietf.org/html/rfc2085
@@ -47,7 +47,7 @@ Specs: Cryptography
   http://tools.ietf.org/html/rfc2104
 - RFC 2410: The NULL Encryption Algorithm and Its Use With IPsec
   http://tools.ietf.org/html/rfc2410
-- RFC 3174: US Secure Hash Algorithm 1 (SHA1)
+~ RFC 3174: US Secure Hash Algorithm 1 (SHA1)
   http://tools.ietf.org/html/rfc3174
 - RFC 4880: OpenPGP Message Format
   http://tools.ietf.org/html/rfc4880

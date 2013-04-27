@@ -10,6 +10,12 @@
 #include <cstring> /* for std::strcmp() */
 
 static const char* const rfc_module_names[] = {
+#ifndef DISABLE_RFC1321
+  "rfc1321",
+#endif
+#ifndef DISABLE_RFC3174
+  "rfc3174",
+#endif
 };
 
 bool
