@@ -10,7 +10,7 @@
 
 using namespace rfc1321;
 
-static_assert(sizeof(md5) == 16, "sizeof(rfc1321::md5) != 16");
+static_assert(sizeof(md5) == md5::size, "sizeof(rfc1321::md5) != rfc1321::md5::size");
 
 md5
 md5::compute(const char* const data) noexcept {

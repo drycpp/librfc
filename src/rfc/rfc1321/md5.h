@@ -20,10 +20,9 @@ namespace rfc1321 {
  * Represents an MD5 digest.
  */
 struct rfc1321::md5 {
-protected:
-  std::uint8_t _data[16] = {};
-
 public:
+  static constexpr std::size_t size = 16; /* 16 bytes (128 bits) */
+
   /**
    * Computes the MD5 digest of the given NUL-terminated input string.
    */
@@ -150,6 +149,9 @@ public:
   void clear() noexcept {
     std::memset(_data, 0, sizeof(_data));
   }
+
+protected:
+  std::uint8_t _data[size] = {};
 };
 
 #endif /* RFC1321_MD5_H */
