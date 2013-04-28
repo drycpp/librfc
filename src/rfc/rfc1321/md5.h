@@ -123,6 +123,13 @@ public:
   }
 
   /**
+   * Returns the byte at the given position.
+   */
+  std::uint8_t operator[](const std::size_t position) const noexcept {
+    return _data[position];
+  }
+
+  /**
    * Returns a pointer to the digest data.
    */
   std::uint8_t* data() {
