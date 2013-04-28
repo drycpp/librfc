@@ -3,6 +3,7 @@
 #ifndef RFC1321_MD5_H
 #define RFC1321_MD5_H
 
+#include <cstddef> /* for std::size_t */
 #include <cstdint> /* for std::uint8_t */
 #include <cstring> /* for std::memcmp() */
 #include <utility> /* for std::swap() */
@@ -23,6 +24,16 @@ protected:
   std::uint8_t _data[16] = {};
 
 public:
+  /**
+   * Computes the MD5 digest of the given NUL-terminated input string.
+   */
+  static md5 compute(const char* data) noexcept;
+
+  /**
+   * Computes the MD5 digest of the given input data.
+   */
+  static md5 compute(const std::uint8_t* data, std::size_t size) noexcept;
+
   /**
    * Default constructor. The structure is all zeroes after construction.
    */
