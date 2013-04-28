@@ -144,6 +144,34 @@ public:
   }
 
   /**
+   * Returns a reference to the first byte of the digest data.
+   */
+  std::uint8_t& front() {
+    return _data[0];
+  }
+
+  /**
+   * Returns a reference to the first byte of the digest data.
+   */
+  const std::uint8_t& front() const {
+    return _data[0];
+  }
+
+  /**
+   * Returns a reference to the last byte of the digest data.
+   */
+  std::uint8_t& back() {
+    return _data[size-1];
+  }
+
+  /**
+   * Returns a reference to the last byte of the digest data.
+   */
+  const std::uint8_t& back() const {
+    return _data[size-1];
+  }
+
+  /**
    * Compares this digest to the given other digest.
    */
   inline int compare(const md5& other) const noexcept {
