@@ -3,14 +3,14 @@
 #ifndef RFC1321_MD5_H
 #define RFC1321_MD5_H
 
-#include <cstddef> /* for std::size_t */
-#include <cstdint> /* for std::uint8_t */
-#include <cstring> /* for std::memcmp() */
-#include <utility> /* for std::swap() */
-
 /**
  * @file
  */
+
+#include <cstddef> /* for std::size_t */
+#include <cstdint> /* for std::uint8_t */
+#include <cstring> /* for std::memcmp(), std::memset() */
+#include <utility> /* for std::swap() */
 
 namespace rfc1321 {
   struct md5;
@@ -142,6 +142,13 @@ public:
    */
   inline int compare(const md5& other) const noexcept {
     return std::memcmp(_data, other._data, sizeof(_data));
+  }
+
+  /**
+   * Clears the digest data to be all zeroes.
+   */
+  void clear() noexcept {
+    std::memset(_data, 0, sizeof(_data));
   }
 };
 
