@@ -122,6 +122,20 @@ public:
   bool operator>=(const md5& other) const {
     return std::memcmp(_data, other._data, sizeof(_data)) >= 0;
   }
+
+  /**
+   * Returns a pointer to the digest data.
+   */
+  std::uint8_t* data() {
+    return _data;
+  }
+
+  /**
+   * Returns a pointer to the digest data.
+   */
+  const std::uint8_t* data() const {
+    return _data;
+  }
 };
 
 #endif /* RFC1321_MD5_H */
