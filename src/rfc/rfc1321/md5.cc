@@ -14,7 +14,7 @@ static_assert(sizeof(md5) == 16, "sizeof(rfc1321::md5) != 16");
 
 md5
 md5::compute(const char* const data) noexcept {
-  return md5::compute(reinterpret_cast<const std::uint8_t*>(data), std::strlen(data));
+  return compute(reinterpret_cast<const std::uint8_t*>(data), std::strlen(data));
 }
 
 md5

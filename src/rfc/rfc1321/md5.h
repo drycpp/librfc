@@ -85,42 +85,42 @@ public:
    * Equality operator.
    */
   bool operator==(const md5& other) const {
-    return std::memcmp(_data, other._data, sizeof(_data)) == 0;
+    return compare(other) == 0;
   }
 
   /**
    * Inequality operator.
    */
   bool operator!=(const md5& other) const {
-    return std::memcmp(_data, other._data, sizeof(_data)) != 0;
+    return compare(other) != 0;
   }
 
   /**
    * Less-than operator.
    */
   bool operator<(const md5& other) const {
-    return std::memcmp(_data, other._data, sizeof(_data)) < 0;
+    return compare(other) < 0;
   }
 
   /**
    * Less-than-or-equal-to operator.
    */
   bool operator<=(const md5& other) const {
-    return std::memcmp(_data, other._data, sizeof(_data)) <= 0;
+    return compare(other) <= 0;
   }
 
   /**
    * Greater-than operator.
    */
   bool operator>(const md5& other) const {
-    return std::memcmp(_data, other._data, sizeof(_data)) > 0;
+    return compare(other) > 0;
   }
 
   /**
    * Greater-than-or-equal-to operator.
    */
   bool operator>=(const md5& other) const {
-    return std::memcmp(_data, other._data, sizeof(_data)) >= 0;
+    return compare(other) >= 0;
   }
 
   /**
@@ -135,6 +135,13 @@ public:
    */
   const std::uint8_t* data() const {
     return _data;
+  }
+
+  /**
+   * Compares this digest to the given other digest.
+   */
+  inline int compare(const md5& other) const noexcept {
+    return std::memcmp(_data, other._data, sizeof(_data));
   }
 };
 
