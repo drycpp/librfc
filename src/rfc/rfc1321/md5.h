@@ -157,6 +157,13 @@ public:
     std::memset(_data, 0, sizeof(_data));
   }
 
+  /**
+   * Exchanges the digest data with the given other digest.
+   */
+  void swap(md5& other) noexcept {
+    std::swap(_data, other._data);
+  }
+
 protected:
   std::uint8_t _data[size] = {};
 };
