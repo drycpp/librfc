@@ -123,9 +123,16 @@ public:
   }
 
   /**
-   * Returns the byte at the given position.
+   * Returns a reference to the byte at the given position.
    */
-  std::uint8_t operator[](const std::size_t position) const noexcept {
+  std::uint8_t& operator[](const std::size_t position) noexcept {
+    return _data[position];
+  }
+
+  /**
+   * Returns a reference to the byte at the given position.
+   */
+  const std::uint8_t& operator[](const std::size_t position) const noexcept {
     return _data[position];
   }
 
@@ -147,28 +154,28 @@ public:
    * Returns a reference to the first byte of the digest data.
    */
   std::uint8_t& front() {
-    return _data[0];
+    return operator[](0);
   }
 
   /**
    * Returns a reference to the first byte of the digest data.
    */
   const std::uint8_t& front() const {
-    return _data[0];
+    return operator[](0);
   }
 
   /**
    * Returns a reference to the last byte of the digest data.
    */
   std::uint8_t& back() {
-    return _data[size-1];
+    return operator[](size - 1);
   }
 
   /**
    * Returns a reference to the last byte of the digest data.
    */
   const std::uint8_t& back() const {
-    return _data[size-1];
+    return operator[](size - 1);
   }
 
   /**
