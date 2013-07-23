@@ -7,7 +7,7 @@
   <doap:Project rdf:about="http://librfc.org/">
     <dc:creator rdf:resource="http://ar.to/#self"/>
     <doap:blog rdf:resource="http://ar.to/"/>
-    <doap:bug-database rdf:resource="https://github.com/bendiken/librfc/issues"/>
+    <doap:bug-database rdf:resource="https://github.com/unlicensed/librfc/issues"/>
     <doap:created>2013-02-05</doap:created>
     <doap:description xml:lang="en">
       Public domain implementations of core RFC specifications for C/C++.
