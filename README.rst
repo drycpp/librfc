@@ -19,10 +19,24 @@ Features
 * 100% free and unencumbered `public domain <http://unlicense.org/>`_ software,
   usable in any context and for any purpose.
 
+Current Status
+--------------
+
+This table summarizes which RFC specifications are implemented at present:
+
+=============== ======== ==================================== ================
+Header          Spec     Description                          Status
+=============== ======== ==================================== ================
+<rfc/rfc3174.h> RFC 3174 US Secure Hash Algorithm 1 (SHA1)    WIP
+<rfc/rfc1321.h> RFC 1321 The MD5 Message-Digest Algorithm     WIP
+<rfc/rfc3986.h> RFC 3986 Uniform Resource Identifier (URI)    WIP
+<rfc/rfc4122.h> RFC 4122 Universally Unique Identifier (UUID) WIP
+=============== ======== ==================================== ================
+
 Build Prerequisites
 -------------------
 
-* Clang_ (>= 3.0) or GCC_ (>= 4.6)
+* Clang_ (>= 3.0) or GCC_ (>= 4.7)
 * Autoconf_ (>= 2.68)
 * Automake_ (>= 1.11)
 * Libtool_ (>= 2.2)
@@ -33,8 +47,11 @@ Build Prerequisites
 .. _Automake: http://www.gnu.org/software/automake/
 .. _Libtool:  http://www.gnu.org/software/libtool/
 
+Installation
+------------
+
 Installation on Unix
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -48,7 +65,7 @@ Installation on Unix
 Elsewhere
 ---------
 
-Find the project at: GitHub_, Bitbucket_, Ohloh_, Freecode_, SourceForge_,
+Find this project at: GitHub_, Bitbucket_, Ohloh_, Freecode_, SourceForge_,
 and `Travis CI`_.
 
 .. _GitHub:      http://github.com/unlicensed/librfc
@@ -57,6 +74,21 @@ and `Travis CI`_.
 .. _Freecode:    http://freecode.com/projects/librfc
 .. _SourceForge: http://sourceforge.net/projects/librfc/
 .. _Travis CI:   http://travis-ci.org/unlicensed/librfc
+
+Author
+------
+
+* `Arto Bendiken <https://github.com/bendiken>`_ - http://ar.to/
+
+Donations
+---------
+
+If you found this software useful and would like to encourage its
+maintenance and further development, please consider making a donation to
+the `Bitcoin`_ wallet address `15vNqz4kKWGjQmMv55KvuZwtbSkqXDx5AW`__.
+
+.. _Bitcoin: http://en.wikipedia.org/wiki/Bitcoin
+.. __: bitcoin:15vNqz4kKWGjQmMv55KvuZwtbSkqXDx5AW?label=librfc.org&message=Donation
 
 License
 -------
