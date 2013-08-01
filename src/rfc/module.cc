@@ -11,16 +11,25 @@
 
 static const char* const rfc_module_names[] = {
 #ifndef DISABLE_RFC1321
-  "rfc1321",
+  "rfc1321", /* MD5 */
+#endif
+#ifndef DISABLE_RFC2616
+  "rfc2616", /* HTTP/1.1 */
 #endif
 #ifndef DISABLE_RFC3174
-  "rfc3174",
+  "rfc3174", /* SHA-1 */
+#endif
+#ifndef DISABLE_RFC3629
+  "rfc3629", /* UTF-8 */
 #endif
 #ifndef DISABLE_RFC3986
-  "rfc3986",
+  "rfc3986", /* URI */
 #endif
 #ifndef DISABLE_RFC4122
-  "rfc4122",
+  "rfc4122", /* UUID */
+#endif
+#ifndef DISABLE_RFC4627
+  "rfc4627", /* JSON */
 #endif
 };
 

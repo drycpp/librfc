@@ -1,7 +1,7 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef RFC4122_UUID_H
-#define RFC4122_UUID_H
+#ifndef RFC_RFC4122_UUID_H
+#define RFC_RFC4122_UUID_H
 
 /**
  * @file
@@ -15,4 +15,4 @@ extern "C" {
 } /* extern "C" */
 #endif
 
-#endif /* RFC4122_UUID_H */
+#endif /* RFC_RFC4122_UUID_H */

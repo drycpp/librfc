@@ -1,7 +1,7 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef RFC3174_SHA1_H
-#define RFC3174_SHA1_H
+#ifndef RFC_RFC3174_SHA1_H
+#define RFC_RFC3174_SHA1_H
 
 /**
  * @file
@@ -203,4 +203,4 @@ protected:
   std::uint8_t _data[size] = {};
 };
 
-#endif /* RFC3174_SHA1_H */
+#endif /* RFC_RFC3174_SHA1_H */

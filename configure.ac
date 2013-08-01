@@ -70,12 +70,24 @@ AC_ARG_ENABLE([rfc1321],
 AS_IF([test "x$enable_rfc1321" == "xno"], [
   AC_DEFINE([DISABLE_RFC1321], 1, [Define to omit the <rfc/rfc1321.h> module.])])
 AM_CONDITIONAL([DISABLE_RFC1321], [test "x$enable_rfc1321" == "xno"])
+# --enable-rfc2616/--disable-rfc2616
+AC_ARG_ENABLE([rfc2616],
+  [AS_HELP_STRING([--disable-rfc2616], [do not include the RFC 2616 (HTTP/1.1) module])])
+AS_IF([test "x$enable_rfc2616" == "xno"], [
+  AC_DEFINE([DISABLE_RFC2616], 1, [Define to omit the <rfc/rfc2616.h> module.])])
+AM_CONDITIONAL([DISABLE_RFC2616], [test "x$enable_rfc2616" == "xno"])
 # --enable-rfc3174/--disable-rfc3174
 AC_ARG_ENABLE([rfc3174],
   [AS_HELP_STRING([--disable-rfc3174], [do not include the RFC 3174 (SHA-1) module])])
 AS_IF([test "x$enable_rfc3174" == "xno"], [
   AC_DEFINE([DISABLE_RFC3174], 1, [Define to omit the <rfc/rfc3174.h> module.])])
 AM_CONDITIONAL([DISABLE_RFC3174], [test "x$enable_rfc3174" == "xno"])
+# --enable-rfc3629/--disable-rfc3629
+AC_ARG_ENABLE([rfc3629],
+  [AS_HELP_STRING([--disable-rfc3629], [do not include the RFC 3629 (UTF-8) module])])
+AS_IF([test "x$enable_rfc3629" == "xno"], [
+  AC_DEFINE([DISABLE_RFC3629], 1, [Define to omit the <rfc/rfc3629.h> module.])])
+AM_CONDITIONAL([DISABLE_RFC3629], [test "x$enable_rfc3629" == "xno"])
 # --enable-rfc3986/--disable-rfc3986
 AC_ARG_ENABLE([rfc3986],
   [AS_HELP_STRING([--disable-rfc3986], [do not include the RFC 3986 (URI) module])])
@@ -88,6 +100,12 @@ AC_ARG_ENABLE([rfc4122],
 AS_IF([test "x$enable_rfc4122" == "xno"], [
   AC_DEFINE([DISABLE_RFC4122], 1, [Define to omit the <rfc/rfc4122.h> module.])])
 AM_CONDITIONAL([DISABLE_RFC4122], [test "x$enable_rfc4122" == "xno"])
+# --enable-rfc4627/--disable-rfc4627
+AC_ARG_ENABLE([rfc4627],
+  [AS_HELP_STRING([--disable-rfc4627], [do not include the RFC 4627 (JSON) module])])
+AS_IF([test "x$enable_rfc4627" == "xno"], [
+  AC_DEFINE([DISABLE_RFC4627], 1, [Define to omit the <rfc/rfc4627.h> module.])])
+AM_CONDITIONAL([DISABLE_RFC4627], [test "x$enable_rfc4627" == "xno"])
 
 dnl Check for libraries:
 

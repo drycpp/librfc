@@ -1,7 +1,7 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef RFC3986_URI_H
-#define RFC3986_URI_H
+#ifndef RFC_RFC3986_URI_H
+#define RFC_RFC3986_URI_H
 
 /**
  * @file
@@ -15,4 +15,4 @@ extern "C" {
 } /* extern "C" */
 #endif
 
-#endif /* RFC3986_URI_H */
+#endif /* RFC_RFC3986_URI_H */

@@ -19,7 +19,7 @@ Specs: Character Encoding
   http://tools.ietf.org/html/rfc2277
 - RFC 2781: UTF-16, an encoding of ISO 10646
   http://tools.ietf.org/html/rfc2781
-- RFC 3629: UTF-8, a transformation format of ISO 10646
+~ RFC 3629: UTF-8, a transformation format of ISO 10646
   http://tools.ietf.org/html/rfc3629
 - RFC 4648: The Base16, Base32, and Base64 Data Encodings
   http://tools.ietf.org/html/rfc4648
@@ -73,7 +73,7 @@ Specs: Date/Time
 Specs: JSON Format
 ------------------
 
-- RFC 4627: The application/json Media Type for JavaScript Object Notation (JSON)
+~ RFC 4627: The application/json Media Type for JavaScript Object Notation (JSON)
   http://tools.ietf.org/html/rfc4627
 - RFC 6901: JavaScript Object Notation (JSON) Pointer
   http://tools.ietf.org/html/rfc6901
@@ -137,7 +137,7 @@ Specs: URIs, URNs, and URLs
 
 - RFC 2141: URN Syntax
   http://tools.ietf.org/html/rfc2141
-- RFC 3986: Uniform Resource Identifier (URI): Generic Syntax
+~ RFC 3986: Uniform Resource Identifier (URI): Generic Syntax
   http://tools.ietf.org/html/rfc3986
 ~ RFC 4122: A Universally Unique IDentifier (UUID) URN Namespace
   http://tools.ietf.org/html/rfc4122
@@ -151,7 +151,7 @@ Specs: World Wide Web
 
 - RFC 1945: Hypertext Transfer Protocol -- HTTP/1.0
   http://tools.ietf.org/html/rfc1945
-- RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1
+~ RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1
   http://tools.ietf.org/html/rfc2616
 - RFC 6266: Use of the Content-Disposition Header Field in the Hypertext Transfer Protocol (HTTP)
   http://tools.ietf.org/html/rfc6266
@@ -163,3 +163,5 @@ Specs: World Wide Web
   http://tools.ietf.org/html/rfc6265
 * Internet-Draft: A New HTTP Status Code to Report Legal Obstacles
   http://tools.ietf.org/html/draft-tbray-http-legally-restricted-status-02
+* Internet-Draft: Hypertext Transfer Protocol version 2.0
+  http://tools.ietf.org/html/draft-ietf-httpbis-http2-04

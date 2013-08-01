@@ -2,7 +2,7 @@ CPPFLAGS =
 CXXFLAGS = -std=c++11 -stdlib=libc++
 LDFLAGS  = -lrfc
 
-PROGRAMS = md5 sha1 uri uuid
+PROGRAMS = http json md5 sha1 uri utf8 uuid
 
 all: $(PROGRAMS)
 

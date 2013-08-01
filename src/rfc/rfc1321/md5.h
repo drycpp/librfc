@@ -1,7 +1,7 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef RFC1321_MD5_H
-#define RFC1321_MD5_H
+#ifndef RFC_RFC1321_MD5_H
+#define RFC_RFC1321_MD5_H
 
 /**
  * @file
@@ -203,4 +203,4 @@ protected:
   std::uint8_t _data[size] = {};
 };
 
-#endif /* RFC1321_MD5_H */
+#endif /* RFC_RFC1321_MD5_H */

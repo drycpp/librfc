@@ -1,5 +1,8 @@
 *.o
+http
+json
 md5
 sha1
 uri
+utf8
 uuid

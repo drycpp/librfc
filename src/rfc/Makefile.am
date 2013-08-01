@@ -24,9 +24,19 @@ if !DISABLE_RFC1321
   nobase_pkginclude_HEADERS += rfc1321.h rfc1321/md5.h md5.h
 endif
 
+if !DISABLE_RFC2616
+  librfc_la_SOURCES       += rfc2616/http_request.cc rfc2616/http_response.cc
+  nobase_pkginclude_HEADERS += rfc2616.h rfc2616/http_request.h rfc2616/http_response.h http.h
+endif
+
 if !DISABLE_RFC3174
   librfc_la_SOURCES       += rfc3174/sha1.cc
   nobase_pkginclude_HEADERS += rfc3174.h rfc3174/sha1.h sha1.h
+endif
+
+if !DISABLE_RFC3629
+  librfc_la_SOURCES       += rfc3629/utf8.cc
+  nobase_pkginclude_HEADERS += rfc3629.h rfc3629/utf8.h utf8.h
 endif
 
 if !DISABLE_RFC3986
@@ -37,4 +47,9 @@ endif
 if !DISABLE_RFC4122
   librfc_la_SOURCES       += rfc4122/uuid.cc
   nobase_pkginclude_HEADERS += rfc4122.h rfc4122/uuid.h uuid.h
+endif
+
+if !DISABLE_RFC4627
+  librfc_la_SOURCES       += rfc4627/json_value.cc
+  nobase_pkginclude_HEADERS += rfc4627.h rfc4627/json_value.h json.h
 endif
