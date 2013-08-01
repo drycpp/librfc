@@ -17,10 +17,22 @@ namespace rfc3629 {
   extern const std::uint8_t utf8_skip_table[256];
 
   /**
+   */
+  static inline const char* utf8_skip_char(const char* const input) noexcept {
+    return input + utf8_skip_table[*reinterpret_cast<const std::uint8_t*>(input)];
+  }
+
+  /**
+   */
+  static inline char* utf8_skip_char(char* const input) noexcept {
+    return input + utf8_skip_table[*reinterpret_cast<std::uint8_t*>(input)];
+  }
+
+  /**
    * @param c a Unicode codepoint
    * @return the number of bytes needed
    */
-  static inline std::size_t utf8_length(const std::uint32_t c) {
+  static inline constexpr std::size_t utf8_length(const std::uint32_t c) noexcept {
     return (c < 0x00080) ? 1 : (c < 0x00800) ? 2 : (c < 0x10000) ? 3 : 4;
   }
 
