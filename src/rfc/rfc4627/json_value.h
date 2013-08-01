@@ -7,6 +7,9 @@
  * @file
  */
 
-namespace rfc4627 {}
+namespace rfc4627 {
+  class json_value {
+  };
+}
 
 #endif /* RFC_RFC4627_JSON_VALUE_H */
