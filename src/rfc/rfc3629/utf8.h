@@ -17,9 +17,17 @@ namespace rfc3629 {
   extern const std::uint8_t utf8_skip_table[256];
 
   /**
+   * @param c a Unicode codepoint
+   * @return the number of bytes needed
+   */
+  static inline std::size_t utf8_length(const std::uint32_t c) {
+    return (c < 0x00080) ? 1 : (c < 0x00800) ? 2 : (c < 0x10000) ? 3 : 4;
+  }
+
+  /**
    * @param c the Unicode codepoint to encode
    * @param buffer the output buffer (at least 4 bytes)
-   * @return the number of encoded bytes
+   * @return the number of bytes written
    */
   static inline std::size_t utf8_encode(const std::uint32_t c, char* const buffer) noexcept {
     std::uint8_t* output = reinterpret_cast<std::uint8_t*>(buffer);
