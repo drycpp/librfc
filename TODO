@@ -21,7 +21,7 @@ Specs: Character Encoding
   http://tools.ietf.org/html/rfc2781
 ~ RFC 3629: UTF-8, a transformation format of ISO 10646
   http://tools.ietf.org/html/rfc3629
-- RFC 4648: The Base16, Base32, and Base64 Data Encodings
+! RFC 4648: The Base16, Base32, and Base64 Data Encodings
   http://tools.ietf.org/html/rfc4648
 - RFC 5198: Unicode Format for Network Interchange
   http://tools.ietf.org/html/rfc5198
@@ -67,7 +67,7 @@ Specs: CSV Format
 Specs: Date/Time
 ----------------
 
-- RFC 3339: Date and Time on the Internet: Timestamps
+! RFC 3339: Date and Time on the Internet: Timestamps
   http://tools.ietf.org/html/rfc3339
 
 Specs: JSON Format
@@ -153,6 +153,8 @@ Specs: World Wide Web
   http://tools.ietf.org/html/rfc1945
 ~ RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1
   http://tools.ietf.org/html/rfc2616
+! RFC 3875: The Common Gateway Interface (CGI) Version 1.1
+  http://tools.ietf.org/html/rfc3875
 - RFC 6266: Use of the Content-Disposition Header Field in the Hypertext Transfer Protocol (HTTP)
   http://tools.ietf.org/html/rfc6266
 - RFC 6455: The WebSocket Protocol
