@@ -43,9 +43,11 @@ if !DISABLE_RFC3174
 endif
 
 if !DISABLE_RFC3629
-  librfc_la_SOURCES         += rfc3629/utf8.cc
+  librfc_la_SOURCES         += rfc3629/utf8_decode.cc   \
+                               rfc3629/utf8_encode.cc
   nobase_pkginclude_HEADERS += rfc3629.h                \
-                               rfc3629/utf8.h           \
+                               rfc3629/utf8_decode.h    \
+                               rfc3629/utf8_encode.h    \
                                utf8.h
 endif
 
