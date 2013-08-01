@@ -50,6 +50,13 @@ Build Prerequisites
 .. _Automake: http://www.gnu.org/software/automake/
 .. _Libtool:  http://www.gnu.org/software/libtool/
 
+Build Dependencies
+------------------
+
+* Boost.Test_ (>= 1.48), for ``make check`` unit tests only
+
+.. _Boost.Test: http://www.boost.org/libs/test/
+
 Installation
 ------------
 

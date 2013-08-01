@@ -108,6 +108,8 @@ AS_IF([test "x$enable_rfc4627" == "xno"], [
 AM_CONDITIONAL([DISABLE_RFC4627], [test "x$enable_rfc4627" == "xno"])
 
 dnl Check for libraries:
+AX_BOOST_BASE([1.48])
+AX_BOOST_UNIT_TEST_FRAMEWORK
 
 dnl Check for header files:
 AC_LANG_PUSH([C])
