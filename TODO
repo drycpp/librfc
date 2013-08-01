@@ -70,14 +70,6 @@ Specs: Date/Time
 ! RFC 3339: Date and Time on the Internet: Timestamps
   http://tools.ietf.org/html/rfc3339
 
-Specs: JSON Format
-------------------
-
-~ RFC 4627: The application/json Media Type for JavaScript Object Notation (JSON)
-  http://tools.ietf.org/html/rfc4627
-- RFC 6901: JavaScript Object Notation (JSON) Pointer
-  http://tools.ietf.org/html/rfc6901
-
 Specs: IRC Protocol
 -------------------
 
@@ -92,6 +84,14 @@ Specs: IRC Protocol
 - RFC 2813: Internet Relay Chat: Server Protocol
   http://tools.ietf.org/html/rfc2813
 
+Specs: JSON Format
+------------------
+
+~ RFC 4627: The application/json Media Type for JavaScript Object Notation (JSON)
+  http://tools.ietf.org/html/rfc4627
+- RFC 6901: JavaScript Object Notation (JSON) Pointer
+  http://tools.ietf.org/html/rfc6901
+
 Specs: Language Tags
 --------------------
 
@@ -101,6 +101,22 @@ Specs: Language Tags
   http://tools.ietf.org/html/rfc4647
 - RFC 5646: Tags for Identifying Languages
   http://tools.ietf.org/html/rfc5646
+
+Specs: Multipurpose Internet Mail Extensions (MIME)
+---------------------------------------------------
+
+- RFC 2045: MIME Part One: Format of Internet Message Bodies
+  http://tools.ietf.org/html/rfc2045
+- RFC 2046: MIME Part Two: Media Types
+  http://tools.ietf.org/html/rfc2046
+- RFC 2047: MIME Part Three: Message Header Extensions for Non-ASCII Text
+  http://tools.ietf.org/html/rfc2047
+- RFC 2049: MIME Part Five: Conformance Criteria and Examples
+  http://tools.ietf.org/html/rfc2049
+- RFC 4288: Media Type Specifications and Registration Procedures
+  http://tools.ietf.org/html/rfc4288
+- RFC 4289: MIME Part Four: Registration Procedures
+  http://tools.ietf.org/html/rfc4289
 
 Specs: Remote Shell
 -------------------
@@ -123,6 +139,12 @@ Specs: Remote Shell
   http://tools.ietf.org/html/rfc4256
 - RFC 6668: SHA-2 Data Integrity Verification for the Secure Shell (SSH) Transport Layer Protocol
   http://tools.ietf.org/html/rfc6668
+
+Specs: Simple Mail Transfer Protocol (SMTP)
+-------------------------------------------
+
+- RFC 5321: Simple Mail Transfer Protocol
+  http://tools.ietf.org/html/rfc5321
 
 Specs: Transport-Layer Security
 -------------------------------
