@@ -12,9 +12,14 @@
 
 namespace rfc3629 {
   /**
-   * Lookup table for UTF-8 decoding.
+   * Lookup table for UTF-8 parsing.
    */
   extern const std::uint8_t utf8_skip_table[256];
+
+  /**
+   * Lookup table for UTF-8 decoding.
+   */
+  extern const std::uint8_t utf8_decode_table[64];
 
   /**
    */
@@ -29,7 +34,7 @@ namespace rfc3629 {
   }
 
   /**
-   * @param c a Unicode codepoint
+   * @param c a Unicode code point
    * @return the number of bytes needed
    */
   static inline constexpr std::size_t utf8_length(const std::uint32_t c) noexcept {
@@ -37,8 +42,12 @@ namespace rfc3629 {
   }
 
   /**
-   * @param c the Unicode codepoint to encode
-   * @param buffer the output buffer (at least 4 bytes)
+   * Encodes a single Unicode code point as UTF-8.
+   *
+   * The given output buffer must have at least 4 bytes of space.
+   *
+   * @param c the Unicode code point to encode
+   * @param buffer the UTF-8 output buffer
    * @return the number of bytes written
    */
   static inline std::size_t utf8_encode(const std::uint32_t c, char* const buffer) noexcept {
@@ -63,6 +72,29 @@ namespace rfc3629 {
     }
     return reinterpret_cast<std::uintptr_t>(output) -
       reinterpret_cast<std::uintptr_t>(buffer);
+  }
+
+  /**
+   * Decodes a single Unicode code point from UTF-8 input.
+   *
+   * @param input the UTF-8 input string
+   * @return the decoded Unicode code point
+   */
+  static inline std::uint32_t utf8_decode(const char* const input_) noexcept {
+    const std::uint8_t* input = reinterpret_cast<const std::uint8_t*>(input_);
+    std::uint32_t c = *input++;
+    if (c >= 0xC0) {
+      c = utf8_decode_table[c - 0xC0];
+      while ((*input & 0xC0) == 0x80) {
+        c = (c << 6) + (*input++ & 0x3F);
+      }
+      if ((c < 0x80) ||
+          (c & 0xFFFFF800) == 0xD800 ||
+          (c & 0xFFFFFFFE) == 0xFFFE) {
+        c = 0xFFFD; /* replacement character (U+FFFD) */
+      }
+    }
+    return c;
   }
 }
 
