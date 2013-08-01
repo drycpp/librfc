@@ -8,6 +8,8 @@ extern "C" {
 #endif
 
 /**
+ * @file
+ *
  * librfc.
  */
 

@@ -1,7 +1,7 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef RFC3986_H
-#define RFC3986_H
+#ifndef RFC_RFC3986_H
+#define RFC_RFC3986_H
 
 /**
  * @file
@@ -12,6 +12,6 @@
  * @see http://tools.ietf.org/html/rfc3986
  */
 
-#include "rfc/rfc3986/uri.h"
+#include "rfc3986/uri.h"
 
-#endif /* RFC3986_H */
+#endif /* RFC_RFC3986_H */

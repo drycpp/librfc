@@ -1,7 +1,7 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef RFC4122_H
-#define RFC4122_H
+#ifndef RFC_RFC4122_H
+#define RFC_RFC4122_H
 
 /**
  * @file
@@ -12,6 +12,6 @@
  * @see http://tools.ietf.org/html/rfc4122
  */
 
-#include "rfc/rfc4122/uuid.h"
+#include "rfc4122/uuid.h"
 
-#endif /* RFC4122_H */
+#endif /* RFC_RFC4122_H */

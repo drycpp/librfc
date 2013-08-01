@@ -1,7 +1,7 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef RFC3174_H
-#define RFC3174_H
+#ifndef RFC_RFC3174_H
+#define RFC_RFC3174_H
 
 /**
  * @file
@@ -11,6 +11,6 @@
  * @see http://tools.ietf.org/html/rfc3174
  */
 
-#include "rfc/rfc3174/sha1.h"
+#include "rfc3174/sha1.h"
 
-#endif /* RFC3174_H */
+#endif /* RFC_RFC3174_H */

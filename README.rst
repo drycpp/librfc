@@ -27,10 +27,10 @@ This table summarizes which RFC specifications are implemented at present:
 =============== ======== ==================================== ================
 Header          Spec     Description                          Status
 =============== ======== ==================================== ================
-<rfc/rfc3174.h> RFC 3174 US Secure Hash Algorithm 1 (SHA1)    WIP
-<rfc/rfc1321.h> RFC 1321 The MD5 Message-Digest Algorithm     WIP
-<rfc/rfc3986.h> RFC 3986 Uniform Resource Identifier (URI)    WIP
-<rfc/rfc4122.h> RFC 4122 Universally Unique Identifier (UUID) WIP
+<rfc/sha1.h>    RFC 3174 US Secure Hash Algorithm 1 (SHA1)    WIP
+<rfc/md5.h>     RFC 1321 The MD5 Message-Digest Algorithm     WIP
+<rfc/uri.h>     RFC 3986 Uniform Resource Identifier (URI)    WIP
+<rfc/uuid.h>    RFC 4122 Universally Unique Identifier (UUID) WIP
 =============== ======== ==================================== ================
 
 Build Prerequisites
