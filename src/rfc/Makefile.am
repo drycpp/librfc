@@ -20,9 +20,9 @@ base_pkginclude_HEADERS = \
 nobase_pkginclude_HEADERS =
 
 if !DISABLE_RFC1321
-  librfc_la_SOURCES         += rfc1321/md5.cc
+  librfc_la_SOURCES         += rfc1321/md5_digest.cc
   nobase_pkginclude_HEADERS += rfc1321.h                \
-                               rfc1321/md5.h            \
+                               rfc1321/md5_digest.h     \
                                md5.h
 endif
 

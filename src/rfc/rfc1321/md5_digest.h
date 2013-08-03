@@ -1,7 +1,7 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef RFC_RFC1321_MD5_H
-#define RFC_RFC1321_MD5_H
+#ifndef RFC_RFC1321_MD5_DIGEST_H
+#define RFC_RFC1321_MD5_DIGEST_H
 
 /**
  * @file
@@ -13,61 +13,61 @@
 #include <utility> /* for std::swap() */
 
 namespace rfc1321 {
-  struct md5;
+  struct md5_digest;
 }
 
 /**
  * Represents an MD5 digest.
  */
-struct rfc1321::md5 {
+struct rfc1321::md5_digest {
 public:
   static constexpr std::size_t size = 16; /* 16 bytes (128 bits) */
 
   /**
    * Computes the MD5 digest of the given NUL-terminated input string.
    */
-  static md5 compute(const char* data) noexcept;
+  static md5_digest compute(const char* data) noexcept;
 
   /**
    * Computes the MD5 digest of the given input data.
    */
-  static md5 compute(const std::uint8_t* data, std::size_t size) noexcept;
+  static md5_digest compute(const std::uint8_t* data, std::size_t size) noexcept;
 
   /**
    * Default constructor. The structure is all zeroes after construction.
    */
-  md5() noexcept {}
+  md5_digest() noexcept {}
 
   /**
    * Constructor.
    */
-  md5(const std::uint8_t* const data) noexcept {
+  md5_digest(const std::uint8_t* const data) noexcept {
     *_data = *data;
   }
 
   /**
    * Copy constructor.
    */
-  md5(const md5& other) noexcept {
+  md5_digest(const md5_digest& other) noexcept {
     *_data = *other._data;
   }
 
   /**
    * Move constructor.
    */
-  md5(md5&& other) noexcept {
+  md5_digest(md5_digest&& other) noexcept {
     std::swap(_data, other._data);
   }
 
   /**
    * Destructor.
    */
-  ~md5() noexcept {}
+  ~md5_digest() noexcept {}
 
   /**
    * Copy assignment operator.
    */
-  md5& operator=(md5 other) noexcept {
+  md5_digest& operator=(md5_digest other) noexcept {
     std::swap(_data, other._data);
     return *this;
   }
@@ -75,7 +75,7 @@ public:
   /**
    * Move assignment operator.
    */
-  md5& operator=(md5&& other) noexcept {
+  md5_digest& operator=(md5_digest&& other) noexcept {
     std::swap(_data, other._data);
     return *this;
   }
@@ -83,42 +83,42 @@ public:
   /**
    * Equality operator.
    */
-  bool operator==(const md5& other) const {
+  bool operator==(const md5_digest& other) const {
     return compare(other) == 0;
   }
 
   /**
    * Inequality operator.
    */
-  bool operator!=(const md5& other) const {
+  bool operator!=(const md5_digest& other) const {
     return compare(other) != 0;
   }
 
   /**
    * Less-than operator.
    */
-  bool operator<(const md5& other) const {
+  bool operator<(const md5_digest& other) const {
     return compare(other) < 0;
   }
 
   /**
    * Less-than-or-equal-to operator.
    */
-  bool operator<=(const md5& other) const {
+  bool operator<=(const md5_digest& other) const {
     return compare(other) <= 0;
   }
 
   /**
    * Greater-than operator.
    */
-  bool operator>(const md5& other) const {
+  bool operator>(const md5_digest& other) const {
     return compare(other) > 0;
   }
 
   /**
    * Greater-than-or-equal-to operator.
    */
-  bool operator>=(const md5& other) const {
+  bool operator>=(const md5_digest& other) const {
     return compare(other) >= 0;
   }
 
@@ -181,7 +181,7 @@ public:
   /**
    * Compares this digest to the given other digest.
    */
-  inline int compare(const md5& other) const noexcept {
+  inline int compare(const md5_digest& other) const noexcept {
     return std::memcmp(_data, other._data, sizeof(_data));
   }
 
@@ -195,7 +195,7 @@ public:
   /**
    * Exchanges the digest data with the given other digest.
    */
-  void swap(md5& other) noexcept {
+  void swap(md5_digest& other) noexcept {
     std::swap(_data, other._data);
   }
 
@@ -203,4 +203,4 @@ protected:
   std::uint8_t _data[size] = {};
 };
 
-#endif /* RFC_RFC1321_MD5_H */
+#endif /* RFC_RFC1321_MD5_DIGEST_H */
