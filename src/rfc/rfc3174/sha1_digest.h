@@ -1,7 +1,7 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef RFC_RFC3174_SHA1_H
-#define RFC_RFC3174_SHA1_H
+#ifndef RFC_RFC3174_SHA1_DIGEST_H
+#define RFC_RFC3174_SHA1_DIGEST_H
 
 /**
  * @file
@@ -13,61 +13,61 @@
 #include <utility> /* for std::swap() */
 
 namespace rfc3174 {
-  struct sha1;
+  struct sha1_digest;
 }
 
 /**
  * Represents a SHA-1 digest.
  */
-struct rfc3174::sha1 {
+struct rfc3174::sha1_digest {
 public:
   static constexpr std::size_t size = 20; /* 20 bytes (160 bits) */
 
   /**
    * Computes the SHA-1 digest of the given NUL-terminated input string.
    */
-  static sha1 compute(const char* data) noexcept;
+  static sha1_digest compute(const char* data) noexcept;
 
   /**
    * Computes the SHA-1 digest of the given input data.
    */
-  static sha1 compute(const std::uint8_t* data, std::size_t size) noexcept;
+  static sha1_digest compute(const std::uint8_t* data, std::size_t size) noexcept;
 
   /**
    * Default constructor. The structure is all zeroes after construction.
    */
-  sha1() noexcept {}
+  sha1_digest() noexcept {}
 
   /**
    * Constructor.
    */
-  sha1(const std::uint8_t* const data) noexcept {
+  sha1_digest(const std::uint8_t* const data) noexcept {
     *_data = *data;
   }
 
   /**
    * Copy constructor.
    */
-  sha1(const sha1& other) noexcept {
+  sha1_digest(const sha1_digest& other) noexcept {
     *_data = *other._data;
   }
 
   /**
    * Move constructor.
    */
-  sha1(sha1&& other) noexcept {
+  sha1_digest(sha1_digest&& other) noexcept {
     std::swap(_data, other._data);
   }
 
   /**
    * Destructor.
    */
-  ~sha1() noexcept {}
+  ~sha1_digest() noexcept {}
 
   /**
    * Copy assignment operator.
    */
-  sha1& operator=(sha1 other) noexcept {
+  sha1_digest& operator=(sha1_digest other) noexcept {
     std::swap(_data, other._data);
     return *this;
   }
@@ -75,7 +75,7 @@ public:
   /**
    * Move assignment operator.
    */
-  sha1& operator=(sha1&& other) noexcept {
+  sha1_digest& operator=(sha1_digest&& other) noexcept {
     std::swap(_data, other._data);
     return *this;
   }
@@ -83,42 +83,42 @@ public:
   /**
    * Equality operator.
    */
-  bool operator==(const sha1& other) const {
+  bool operator==(const sha1_digest& other) const {
     return compare(other) == 0;
   }
 
   /**
    * Inequality operator.
    */
-  bool operator!=(const sha1& other) const {
+  bool operator!=(const sha1_digest& other) const {
     return compare(other) != 0;
   }
 
   /**
    * Less-than operator.
    */
-  bool operator<(const sha1& other) const {
+  bool operator<(const sha1_digest& other) const {
     return compare(other) < 0;
   }
 
   /**
    * Less-than-or-equal-to operator.
    */
-  bool operator<=(const sha1& other) const {
+  bool operator<=(const sha1_digest& other) const {
     return compare(other) <= 0;
   }
 
   /**
    * Greater-than operator.
    */
-  bool operator>(const sha1& other) const {
+  bool operator>(const sha1_digest& other) const {
     return compare(other) > 0;
   }
 
   /**
    * Greater-than-or-equal-to operator.
    */
-  bool operator>=(const sha1& other) const {
+  bool operator>=(const sha1_digest& other) const {
     return compare(other) >= 0;
   }
 
@@ -181,7 +181,7 @@ public:
   /**
    * Compares this digest to the given other digest.
    */
-  inline int compare(const sha1& other) const noexcept {
+  inline int compare(const sha1_digest& other) const noexcept {
     return std::memcmp(_data, other._data, sizeof(_data));
   }
 
@@ -195,7 +195,7 @@ public:
   /**
    * Exchanges the digest data with the given other digest.
    */
-  void swap(sha1& other) noexcept {
+  void swap(sha1_digest& other) noexcept {
     std::swap(_data, other._data);
   }
 
@@ -203,4 +203,4 @@ protected:
   std::uint8_t _data[size] = {};
 };
 
-#endif /* RFC_RFC3174_SHA1_H */
+#endif /* RFC_RFC3174_SHA1_DIGEST_H */

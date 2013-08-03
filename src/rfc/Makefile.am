@@ -36,9 +36,9 @@ if !DISABLE_RFC2616
 endif
 
 if !DISABLE_RFC3174
-  librfc_la_SOURCES         += rfc3174/sha1.cc
+  librfc_la_SOURCES         += rfc3174/sha1_digest.cc
   nobase_pkginclude_HEADERS += rfc3174.h                \
-                               rfc3174/sha1.h           \
+                               rfc3174/sha1_digest.h    \
                                sha1.h
 endif
 
