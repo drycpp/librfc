@@ -81,8 +81,7 @@ AX_ARG_ENABLE_RFC([4122], [UUID])     # --enable-rfc4122/--disable-rfc4122
 AX_ARG_ENABLE_RFC([4627], [JSON])     # --enable-rfc4627/--disable-rfc4627
 
 dnl Check for libraries:
-AX_BOOST_BASE([1.48])
-AX_BOOST_UNIT_TEST_FRAMEWORK
+AX_BOOST_BASE([1.48], [AX_BOOST_UNIT_TEST_FRAMEWORK])
 
 dnl Check for header files:
 AC_LANG_PUSH([C])
