@@ -1,7 +1,3 @@
-AM_CPPFLAGS = -I$(top_srcdir)/src -iquote $(srcdir)
-AM_CXXFLAGS = -Wall -Wextra -pipe
-LDADD       = $(top_srcdir)/src/rfc/librfc.la
-
 lib_LTLIBRARIES = librfc.la
 
 librfc_la_SOURCES =       \
