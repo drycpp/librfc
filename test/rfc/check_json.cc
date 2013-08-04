@@ -1,10 +1,10 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#define BOOST_TEST_MODULE module
+#define BOOST_TEST_MODULE json
 #include <boost/test/unit_test.hpp>
 
-#include <rfc/module.h>
+#include <rfc/json.h>
 
-BOOST_AUTO_TEST_CASE(test_module) {
+BOOST_AUTO_TEST_CASE(test_json) {
   BOOST_CHECK(true); // TODO
 }

@@ -11,6 +11,6 @@
  * @see http://tools.ietf.org/html/rfc1321
  */
 
-#include "rfc1321/md5.h"
+#include "rfc1321/md5_digest.h"
 
 #endif /* RFC_RFC1321_H */

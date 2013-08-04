@@ -11,6 +11,6 @@
  * @see http://tools.ietf.org/html/rfc3174
  */
 
-#include "rfc3174/sha1.h"
+#include "rfc3174/sha1_digest.h"
 
 #endif /* RFC_RFC3174_H */

@@ -8,5 +8,12 @@
 *.log
 *.trs
 check_feature
+check_http
+check_json
+check_md5
 check_module
+check_sha1
+check_uri
+check_utf8
+check_uuid
 check_version

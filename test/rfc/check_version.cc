@@ -1,10 +1,10 @@
-#include <cassert> /* for assert() */
-#include <cstdio>  /* for std::printf() */
-#include <cstdlib> /* for EXIT_SUCCESS */
+/* This is free and unencumbered software released into the public domain. */
 
-#include "rfc.h"   /* for RFC_*, rfc_*() */
+#define BOOST_TEST_MODULE version
+#include <boost/test/unit_test.hpp>
 
-int
-main(void) {
-  return EXIT_SUCCESS; // TODO
+#include <rfc/version.h>
+
+BOOST_AUTO_TEST_CASE(test_version) {
+  BOOST_CHECK(true); // TODO
 }
