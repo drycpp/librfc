@@ -76,7 +76,7 @@ Elsewhere
 ---------
 
 Find this project at: GitHub_, Bitbucket_, Ohloh_, Freecode_, SourceForge_,
-and `Travis CI`_.
+`Travis CI`_, Twitter_, and Tumblr_.
 
 .. _GitHub:      http://github.com/unlicensed/librfc
 .. _Bitbucket:   http://bitbucket.org/unlicensed/librfc
@@ -84,6 +84,8 @@ and `Travis CI`_.
 .. _Freecode:    http://freecode.com/projects/librfc
 .. _SourceForge: http://sourceforge.net/projects/librfc/
 .. _Travis CI:   http://travis-ci.org/unlicensed/librfc
+.. _Twitter:     http://twitter.com/librfc
+.. _Tumblr:      http://librfc.tumblr.com/
 
 Author
 ------
