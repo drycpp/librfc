@@ -16,7 +16,7 @@ namespace rfc4627 {
 /**
  * A simple JSON serializer.
  */
-class json_writer {
+class rfc4627::json_writer {
 public:
   json_writer(FILE* stream) : _stream(stream) {}
 
@@ -29,6 +29,8 @@ public:
     write(value ? "true" : "false");
     return *this;
   }
+
+  json_writer& flush();
 
 protected:
   inline void write(const int c) {
