@@ -21,12 +21,24 @@ public:
   json_writer(FILE* stream) : _stream(stream) {}
 
   json_writer& begin_object() {
+    set_state(state::object_begin);
     write('{'); // TODO
     return *this;
   }
 
   json_writer& finish_object() {
     write('}'); // TODO
+    return *this;
+  }
+
+  json_writer& begin_array() {
+    set_state(state::array_begin);
+    write('['); // TODO
+    return *this;
+  }
+
+  json_writer& finish_array() {
+    write(']'); // TODO
     return *this;
   }
 
@@ -43,6 +55,19 @@ public:
   json_writer& flush();
 
 protected:
+  enum class state {
+    none = 0,
+    object_begin,
+    object_key,
+    object_value,
+    array_begin,
+    array_element,
+  };
+
+  inline void set_state(const state s) {
+    _state = s;
+  }
+
   inline void write(const int c) {
     fputc(c, _stream);
   }
@@ -50,10 +75,6 @@ protected:
   inline void write(const char* const s) {
     fputs(s, _stream);
   }
-
-  enum class state {
-    none = 0,
-  };
 
 private:
   state _state  = state::none;
