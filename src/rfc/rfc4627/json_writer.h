@@ -52,6 +52,12 @@ public:
     return *this;
   }
 
+  json_writer& write_number(long long value);
+
+  json_writer& write_number(unsigned long long value);
+
+  json_writer& write_number(double value);
+
   json_writer& flush();
 
 protected:
