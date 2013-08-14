@@ -7,7 +7,9 @@
  * @file
  */
 
-#include <cstdio> /* for FILE */
+#include <cstdio>  /* for FILE */
+#include <cstdint> /* for std::uint8_t */
+#include <string>  /* for std::string */
 
 namespace rfc4627 {
   class json_writer;
@@ -42,21 +44,22 @@ public:
     return *this;
   }
 
-  json_writer& write_null() {
-    write("null");
-    return *this;
-  }
+  json_writer& write_null();
 
-  json_writer& write_boolean(const bool value) {
-    write(value ? "true" : "false");
-    return *this;
-  }
+  json_writer& write_boolean(bool value);
 
   json_writer& write_number(long long value);
 
   json_writer& write_number(unsigned long long value);
 
   json_writer& write_number(double value);
+
+  json_writer& write_string(const std::string& string) {
+    write(string.c_str());
+    return *this;
+  }
+
+  json_writer& write_string(const char* string);
 
   json_writer& flush();
 
@@ -74,7 +77,9 @@ protected:
     _state = s;
   }
 
-  inline void write(const int c) {
+  void write_char(std::uint8_t value) noexcept;
+
+  inline void write(const std::uint8_t c) {
     fputc(c, _stream);
   }
 

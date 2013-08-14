@@ -1,3 +1,9 @@
+Nice to Haves: rfc4627::json_writer
+-----------------------------------
+- Replace std::uint32_t with std::char32_t once <cuchar> is available.
+  http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2249.html
+  http://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2011
+
 Specs: Authentication and Authorization
 ---------------------------------------
 
