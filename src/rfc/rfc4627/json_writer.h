@@ -47,7 +47,7 @@ public:
     return *this;
   }
 
-  json_writer& write_bool(const bool value) {
+  json_writer& write_boolean(const bool value) {
     write(value ? "true" : "false");
     return *this;
   }
