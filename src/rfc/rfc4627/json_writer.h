@@ -20,6 +20,16 @@ class json_writer {
 public:
   json_writer(FILE* stream) : _stream(stream) {}
 
+  json_writer& write_null() {
+    write("null");
+    return *this;
+  }
+
+  json_writer& write_bool(const bool value) {
+    write(value ? "true" : "false");
+    return *this;
+  }
+
 protected:
   inline void write(const int c) {
     fputc(c, _stream);
