@@ -20,6 +20,16 @@ class rfc4627::json_writer {
 public:
   json_writer(FILE* stream) : _stream(stream) {}
 
+  json_writer& begin_object() {
+    write('{'); // TODO
+    return *this;
+  }
+
+  json_writer& finish_object() {
+    write('}'); // TODO
+    return *this;
+  }
+
   json_writer& write_null() {
     write("null");
     return *this;
