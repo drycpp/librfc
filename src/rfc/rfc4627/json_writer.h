@@ -22,27 +22,13 @@ class rfc4627::json_writer {
 public:
   json_writer(FILE* stream) : _stream(stream) {}
 
-  json_writer& begin_object() {
-    set_state(state::object_begin);
-    write('{'); // TODO
-    return *this;
-  }
+  json_writer& begin_object();
 
-  json_writer& finish_object() {
-    write('}'); // TODO
-    return *this;
-  }
+  json_writer& finish_object();
 
-  json_writer& begin_array() {
-    set_state(state::array_begin);
-    write('['); // TODO
-    return *this;
-  }
+  json_writer& begin_array();
 
-  json_writer& finish_array() {
-    write(']'); // TODO
-    return *this;
-  }
+  json_writer& finish_array();
 
   json_writer& write_null();
 
@@ -54,12 +40,38 @@ public:
 
   json_writer& write_number(double value);
 
-  json_writer& write_string(const std::string& string) {
+  json_writer& write_string(const char* string);
+
+  inline json_writer& write_string(const std::string& string) {
     write(string.c_str());
     return *this;
   }
 
-  json_writer& write_string(const char* string);
+#ifdef RFC_RFC4627_JSON_VALUE_H
+  inline json_writer& write(const json_object& value) {
+    return (void)value, *this; // TODO
+  }
+
+  inline json_writer& write(const json_array& value) {
+    return (void)value, *this; // TODO
+  }
+
+  inline json_writer& write(const std::nullptr_t value) {
+    return (void)value, write_null();
+  }
+
+  inline json_writer& write(const json_boolean& value) {
+    return (void)value, *this; // TODO
+  }
+
+  inline json_writer& write(const json_number& value) {
+    return (void)value, *this; // TODO
+  }
+
+  inline json_writer& write(const json_string& value) {
+    return (void)value, *this; // TODO
+  }
+#endif /* RFC_RFC4627_JSON_VALUE_H */
 
   json_writer& flush();
 

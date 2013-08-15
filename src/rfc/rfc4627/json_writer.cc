@@ -13,6 +13,32 @@
 using namespace rfc4627;
 
 json_writer&
+json_writer::begin_object() {
+  set_state(state::object_begin);
+  write('{'); // TODO
+  return *this;
+}
+
+json_writer&
+json_writer::finish_object() {
+  write('}'); // TODO
+  return *this;
+}
+
+json_writer&
+json_writer::begin_array() {
+  set_state(state::array_begin);
+  write('['); // TODO
+  return *this;
+}
+
+json_writer&
+json_writer::finish_array() {
+  write(']'); // TODO
+  return *this;
+}
+
+json_writer&
 json_writer::write_null() {
   write("null");
   return *this;
