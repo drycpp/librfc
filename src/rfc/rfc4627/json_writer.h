@@ -7,7 +7,7 @@
  * @file
  */
 
-#include <cstdio>  /* for FILE */
+#include <cstdio>  /* for FILE, std::fput*() */
 #include <cstdint> /* for std::uint8_t */
 #include <string>  /* for std::string */
 
@@ -92,11 +92,11 @@ protected:
   void write_char(std::uint8_t value) noexcept;
 
   inline void write(const std::uint8_t c) {
-    fputc(c, _stream);
+    std::fputc(c, _stream);
   }
 
   inline void write(const char* const s) {
-    fputs(s, _stream);
+    std::fputs(s, _stream);
   }
 
 private:
