@@ -8,7 +8,8 @@
  */
 
 #include <cstdio>  /* for FILE, std::fput*() */
-#include <cstdint> /* for std::uint8_t */
+#include <cstddef> /* for std::size_t */
+#include <cstdint> /* for std::uint*_t */
 #include <string>  /* for std::string */
 
 namespace rfc4627 {
@@ -20,6 +21,8 @@ namespace rfc4627 {
  */
 class rfc4627::json_writer {
 public:
+  static constexpr std::size_t max_depth = 40;
+
   json_writer(FILE* stream) : _stream(stream) {}
 
   json_writer& begin_object();
@@ -74,18 +77,20 @@ public:
   json_writer& flush();
 
 protected:
+  struct flags {
+    bool pretty : 1;
+  };
+
   enum class state : std::uint8_t {
-    none = 0,
+    begin = 0,
     object_begin,
     object_key,
     object_value,
     array_begin,
     array_element,
+    finish,
+    error,
   };
-
-  inline void set_state(const state s) {
-    _state[_depth] = s;
-  }
 
   void write_char(std::uint8_t value) noexcept;
 
@@ -97,18 +102,26 @@ protected:
     std::fputs(s, _stream);
   }
 
-  void increment_depth();
+  inline void increment_depth();
 
-  void decrement_depth();
+  inline void decrement_depth();
 
-  void insert_separator();
+  inline void ensure_valid_state();
 
-  void insert_whitespace();
+  inline void reject_object_key();
+
+  inline void transition_state();
+
+  inline void insert_separator();
+
+  inline void insert_whitespace();
 
 private:
+  flags _flags = {true};
   unsigned int _depth = 0;
-  state _state[32] = {state::none};
   FILE* _stream = nullptr;
+  const char* _indent = "  ";
+  state _state[max_depth] = {state::begin};
 };
 
 #endif /* RFC_RFC4627_JSON_WRITER_H */
