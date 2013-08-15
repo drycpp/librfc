@@ -15,6 +15,10 @@ using namespace rfc4627;
 
 json_writer&
 json_writer::begin_object() {
+  insert_separator();
+  insert_whitespace();
+
+  increment_depth();
   set_state(state::object_begin);
 
   write('{'); // TODO
@@ -24,6 +28,10 @@ json_writer::begin_object() {
 
 json_writer&
 json_writer::finish_object() {
+  decrement_depth();
+
+  insert_whitespace();
+
   write('}'); // TODO
 
   return *this;
@@ -31,6 +39,10 @@ json_writer::finish_object() {
 
 json_writer&
 json_writer::begin_array() {
+  insert_separator();
+  insert_whitespace();
+
+  increment_depth();
   set_state(state::array_begin);
 
   write('['); // TODO
@@ -40,6 +52,10 @@ json_writer::begin_array() {
 
 json_writer&
 json_writer::finish_array() {
+  decrement_depth();
+
+  insert_whitespace();
+
   write(']'); // TODO
 
   return *this;
@@ -47,6 +63,9 @@ json_writer::finish_array() {
 
 json_writer&
 json_writer::write_null() {
+  insert_separator();
+  insert_whitespace();
+
   write("null");
 
   return *this;
@@ -54,6 +73,9 @@ json_writer::write_null() {
 
 json_writer&
 json_writer::write_boolean(const bool value) {
+  insert_separator();
+  insert_whitespace();
+
   write(value ? "true" : "false");
 
   return *this;
@@ -61,6 +83,9 @@ json_writer::write_boolean(const bool value) {
 
 json_writer&
 json_writer::write_number(const long long value) {
+  insert_separator();
+  insert_whitespace();
+
   std::fprintf(_stream, "%lld", value);
 
   return *this;
@@ -68,6 +93,9 @@ json_writer::write_number(const long long value) {
 
 json_writer&
 json_writer::write_number(const unsigned long long value) {
+  insert_separator();
+  insert_whitespace();
+
   std::fprintf(_stream, "%llu", value);
 
   return *this;
@@ -84,6 +112,9 @@ json_writer::write_number(const double value) {
     throw std::invalid_argument("NaN cannot be serialized in JSON");
   }
 
+  insert_separator();
+  insert_whitespace();
+
   std::fprintf(_stream, "%.20g", value);
 
   return *this;
@@ -94,6 +125,9 @@ json_writer::write_string(const char* const value) {
   if (value == nullptr) {
     return write_null();
   }
+
+  insert_separator();
+  insert_whitespace();
 
   write('"');
   const char* s = value;
@@ -150,4 +184,31 @@ json_writer::flush() {
   }
 
   return *this;
+}
+
+void
+json_writer::increment_depth() {
+  _depth++; // TODO: check for overflow
+}
+
+void
+json_writer::decrement_depth() {
+  assert(_depth >= 1);
+  _depth--; // TODO: check for underflow
+}
+
+void
+json_writer::insert_separator() {
+  switch (_state[_depth]) {
+    case state::array_element:
+      write(',');
+      break;
+    default:
+      break;
+  }
+}
+
+void
+json_writer::insert_whitespace() {
+  // TODO
 }

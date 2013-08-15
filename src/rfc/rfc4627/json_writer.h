@@ -76,7 +76,7 @@ public:
   json_writer& flush();
 
 protected:
-  enum class state {
+  enum class state : std::uint8_t {
     none = 0,
     object_begin,
     object_key,
@@ -86,7 +86,7 @@ protected:
   };
 
   inline void set_state(const state s) {
-    _state = s;
+    _state[_depth] = s;
   }
 
   void write_char(std::uint8_t value) noexcept;
@@ -99,8 +99,17 @@ protected:
     std::fputs(s, _stream);
   }
 
+  void increment_depth();
+
+  void decrement_depth();
+
+  void insert_separator();
+
+  void insert_whitespace();
+
 private:
-  state _state  = state::none;
+  unsigned int _depth = 0;
+  state _state[32] = {state::none};
   FILE* _stream = nullptr;
 };
 
