@@ -82,21 +82,11 @@ json_writer::write_boolean(const bool value) {
 }
 
 json_writer&
-json_writer::write_number(const long long value) {
+json_writer::write_integer(const long long value) {
   insert_separator();
   insert_whitespace();
 
   std::fprintf(_stream, "%lld", value);
-
-  return *this;
-}
-
-json_writer&
-json_writer::write_number(const unsigned long long value) {
-  insert_separator();
-  insert_whitespace();
-
-  std::fprintf(_stream, "%llu", value);
 
   return *this;
 }

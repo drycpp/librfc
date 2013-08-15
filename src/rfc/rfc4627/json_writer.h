@@ -34,9 +34,7 @@ public:
 
   json_writer& write_boolean(bool value);
 
-  json_writer& write_number(long long value);
-
-  json_writer& write_number(unsigned long long value);
+  json_writer& write_integer(long long value);
 
   json_writer& write_number(double value);
 
