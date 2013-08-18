@@ -19,13 +19,11 @@ BOOST_AUTO_TEST_CASE(test_json_writer) {
       json.write_integer(800);
       json.write_string("Height");
       json.write_integer(600);
-      json.write_string("Title");
-      json.write_string("View from 15th Floor");
+      json.write_strings("Title", "View from 15th Floor");
       json.write_string("Thumbnail");
       json.begin_object();
       {
-        json.write_string("Url");
-        json.write_string("http://www.example.com/image/481989943");
+        json.write_strings("Url", "http://www.example.com/image/481989943");
         json.write_string("Height");
         json.write_integer(125);
         json.write_string("Width");

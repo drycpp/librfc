@@ -43,6 +43,17 @@ public:
 
   json_writer& write_string(const char* string);
 
+  template <typename T>
+  json_writer& write_strings(T string) {
+    return write_string(string);
+  }
+
+  template <typename T, typename... Args>
+  json_writer& write_strings(T string, Args... args) {
+    write_string(string);
+    return write_strings(args...);
+  }
+
   inline json_writer& write_string(const std::string& string) {
     write(string.c_str());
     return *this;
