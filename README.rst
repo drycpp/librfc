@@ -1,8 +1,8 @@
 librfc: RFC implementations for C/C++
 =====================================
 
-.. image:: https://travis-ci.org/unlicensed/librfc.png?branch=master
-   :target: https://travis-ci.org/unlicensed/librfc
+.. image:: https://travis-ci.org/dryproject/librfc.png?branch=master
+   :target: https://travis-ci.org/dryproject/librfc
    :align: right
    :alt: Travis CI build status
 
@@ -78,12 +78,12 @@ Elsewhere
 Find this project at: GitHub_, Bitbucket_, Ohloh_, Freecode_, SourceForge_,
 `Travis CI`_, Twitter_, and Tumblr_.
 
-.. _GitHub:      http://github.com/unlicensed/librfc
-.. _Bitbucket:   http://bitbucket.org/unlicensed/librfc
+.. _GitHub:      http://github.com/dryproject/librfc
+.. _Bitbucket:   http://bitbucket.org/dryproject/librfc
 .. _Ohloh:       http://www.ohloh.net/p/librfc
 .. _Freecode:    http://freecode.com/projects/librfc
 .. _SourceForge: http://sourceforge.net/projects/librfc/
-.. _Travis CI:   http://travis-ci.org/unlicensed/librfc
+.. _Travis CI:   http://travis-ci.org/dryproject/librfc
 .. _Twitter:     http://twitter.com/librfc
 .. _Tumblr:      http://librfc.tumblr.com/
 
