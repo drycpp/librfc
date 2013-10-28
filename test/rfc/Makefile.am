@@ -7,7 +7,8 @@ LDADD = $(top_srcdir)/src/rfc/librfc.la
 check_PROGRAMS = \
   check_feature  \
   check_module   \
-  check_version
+  check_version  \
+  check_util_str
 
 if !DISABLE_RFC1321
   check_PROGRAMS += check_md5

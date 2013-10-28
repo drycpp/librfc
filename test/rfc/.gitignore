@@ -15,5 +15,6 @@ check_module
 check_sha1
 check_uri
 check_utf8
+check_util_str
 check_uuid
 check_version

@@ -13,7 +13,8 @@ base_pkginclude_HEADERS = \
   module.h                \
   version.h
 
-nobase_pkginclude_HEADERS =
+nobase_pkginclude_HEADERS = \
+  util/str.h
 
 if !DISABLE_RFC1321
   librfc_la_SOURCES         += rfc1321/md5_digest.cc
