@@ -10,6 +10,7 @@
 #include <cstddef>   /* for std::size_t */
 #include <cstring>   /* for std::mem*(), std::str*() */
 #include <stdexcept> /* for std::out_of_range */
+#include <string>    /* for std::string */
 
 namespace rfc {
   class str;
@@ -33,6 +34,12 @@ public:
    * Default constructor.
    */
   str() noexcept {}
+
+  /**
+   * Constructor.
+   */
+  str(const std::string& string) noexcept
+    : _data(const_cast<char*>(string.data())) {}
 
   /**
    * Constructor.
@@ -260,6 +267,13 @@ public:
    */
 
   /**@{*/
+
+  /**
+   * Compares this string to another sequence of characters.
+   */
+  inline int compare(const std::string& other) const noexcept {
+    return compare(other.data());
+  }
 
   /**
    * Compares this string to another sequence of characters.
