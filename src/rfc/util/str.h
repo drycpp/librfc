@@ -7,8 +7,9 @@
  * @file
  */
 
-#include <cstddef> /* for std::size_t */
-#include <cstring> /* for std::mem*(), std::str*() */
+#include <cstddef>   /* for std::size_t */
+#include <cstring>   /* for std::mem*(), std::str*() */
+#include <stdexcept> /* for std::out_of_range */
 
 namespace rfc {
   class str;
@@ -20,11 +21,11 @@ namespace rfc {
  * @note Instances of this class are movable, but not copyable.
  */
 class rfc::str {
-  const char* _data = nullptr;
+  char* _data = nullptr;
 
 public:
   /**
-   * ...
+   * Maximum value for `std::size_t`.
    */
   static constexpr std::size_t npos = static_cast<std::size_t>(-1);
 
@@ -36,8 +37,14 @@ public:
   /**
    * Constructor.
    */
-  str(const char* data) noexcept
+  str(char* data) noexcept
     : _data(data) {}
+
+  /**
+   * Constructor.
+   */
+  str(const char* data) noexcept
+    : _data(const_cast<char*>(data)) {}
 
   /**
    * Copy constructor.
@@ -63,6 +70,240 @@ public:
    * Move assignment operator.
    */
   str& operator=(str&& other) noexcept = default;
+
+  /**
+   * @name Iterators
+   */
+
+  /**@{*/
+
+  /**
+   * Returns a const-qualified iterator to the beginning of this string.
+   */
+  inline const char* cbegin() const noexcept {
+    return begin();
+  }
+
+  /**
+   * Returns a const-qualified iterator to the end of this string.
+   */
+  inline const char* cend() const noexcept {
+    return end();
+  }
+
+  /**
+   * Returns an iterator to the beginning of this string.
+   */
+  inline char* begin() noexcept {
+    return _data;
+  }
+
+  /**
+   * Returns a const-qualified iterator to the beginning of this string.
+   */
+  inline const char* begin() const noexcept {
+    return _data;
+  }
+
+  /**
+   * Returns an iterator to the end of this string.
+   */
+  inline char* end() noexcept {
+    return _data + size();
+  }
+
+  /**
+   * Returns a const-qualified iterator to the end of this string.
+   */
+  inline const char* end() const noexcept {
+    return _data + size();
+  }
+
+  /**@}*/
+
+  /**
+   * @name Capacity
+   */
+
+  /**@{*/
+
+  /**
+   * Tests whether this string is empty.
+   *
+   * The string is empty in case the data pointer is `nullptr` or the first
+   * character of the string is NUL.
+   */
+  inline bool empty() const noexcept {
+    return _data == nullptr || *_data == '\0';
+  }
+
+  /**
+   * Clears this string by resetting the data pointer to `nullptr`.
+   */
+  inline void clear() noexcept {
+    _data = nullptr;
+  }
+
+  /**
+   * Returns the byte length of this string.
+   */
+  inline std::size_t length() const noexcept {
+    return size();
+  }
+
+  /**
+   * Returns the byte length of this string.
+   */
+  inline std::size_t size() const noexcept {
+    return std::strlen(_data);
+  }
+
+  /**@}*/
+
+  /**
+   * @name Element access
+   */
+
+  /**@{*/
+
+  /**
+   * Alias for `data()`.
+   */
+  inline const char* c_str() const noexcept {
+    return _data;
+  }
+
+  /**
+   * Returns a pointer to the underlying C string data.
+   */
+  inline const char* data() const noexcept {
+    return _data;
+  }
+
+  /**
+   * ...
+   */
+  inline char& operator[](std::size_t pos) noexcept {
+    return _data[pos];
+  }
+
+  /**
+   * ...
+   */
+  inline const char& operator[](std::size_t pos) const noexcept {
+    return _data[pos];
+  }
+
+  /**
+   * @throws std::out_of_range
+   */
+  inline char& at(std::size_t pos) noexcept {
+    return _data[pos];
+  }
+
+  /**
+   * @throws std::out_of_range
+   */
+  inline const char& at(std::size_t pos) const noexcept {
+    return _data[pos];
+  }
+
+  /**
+   * ...
+   */
+  inline char& back() noexcept {
+    return _data[size() - 1];
+  }
+
+  /**
+   * ...
+   */
+  inline const char& back() const noexcept {
+    return _data[size() - 1];
+  }
+
+  /**
+   * ...
+   */
+  inline char& front() noexcept {
+    return _data[0];
+  }
+
+  /**
+   * ...
+   */
+  inline const char& front() const noexcept {
+    return _data[0];
+  }
+
+  /**@}*/
+
+  /**
+   * @name Mutative operations
+   */
+
+  /**@{*/
+
+  /**
+   * Erases the last character of this string.
+   */
+  inline void pop_back() noexcept {
+    _data[size() - 1] = '\0';
+  }
+
+  /**@}*/
+
+  /**
+   * @name String operations
+   */
+
+  /**@{*/
+
+  /**
+   * ...
+   */
+  inline int compare(const str& other) const noexcept {
+    return compare(other.data());
+  }
+
+  /**
+   * ...
+   */
+  inline int compare(const char* other) const noexcept {
+    return std::strcmp(_data, other);
+  }
+
+  /**
+   * ...
+   */
+  inline void copy(char* target, std::size_t length, std::size_t pos = 0) const {
+    std::strncpy(target, _data + pos, length);
+  }
+
+  /**
+   * ...
+   */
+  inline std::size_t find(const char c) const noexcept {
+    const char* const pos = std::strchr(_data, c);
+    return pos ? pos - _data : npos;
+  }
+
+  /**
+   * ...
+   */
+  inline std::size_t rfind(const char c) const noexcept {
+    const char* const pos = std::strrchr(_data, c);
+    return pos ? pos - _data : npos;
+  }
+
+  /**
+   * ...
+   */
+  inline str substr(std::size_t pos) const noexcept {
+    return str(_data + pos);
+  }
+
+  /**@}*/
 };
 
 #endif /* RFC_UTIL_STR_H */
