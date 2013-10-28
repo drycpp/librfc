@@ -38,19 +38,19 @@ public:
   /**
    * Constructor.
    */
-  str(const std::string& string) noexcept
+  explicit str(const std::string& string) noexcept
     : _data(const_cast<char*>(string.data())) {}
 
   /**
    * Constructor.
    */
-  str(char* data) noexcept
+  explicit str(char* data) noexcept
     : _data(data) {}
 
   /**
    * Constructor.
    */
-  str(const char* data) noexcept
+  explicit str(const char* data) noexcept
     : _data(const_cast<char*>(data)) {}
 
   /**
@@ -141,7 +141,7 @@ public:
    * character of the string is NUL.
    */
   inline bool empty() const noexcept {
-    return _data == nullptr || *_data == '\0';
+    return _data == nullptr || _data[0] == '\0';
   }
 
   /**
