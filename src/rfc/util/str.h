@@ -155,7 +155,7 @@ public:
    * Returns the byte length of this string.
    */
   inline std::size_t size() const noexcept {
-    return std::strlen(_data);
+    return _data ? std::strlen(_data) : 0;
   }
 
   /**@}*/
@@ -195,16 +195,18 @@ public:
   }
 
   /**
-   * @throws std::out_of_range
+   * @throws std::out_of_range if `pos` >= `size()`
    */
-  inline char& at(std::size_t pos) noexcept {
+  inline char& at(std::size_t pos) {
+    if (pos >= size()) throw std::out_of_range("pos >= size()");
     return _data[pos];
   }
 
   /**
-   * @throws std::out_of_range
+   * @throws std::out_of_range if `pos` >= `size()`
    */
-  inline const char& at(std::size_t pos) const noexcept {
+  inline const char& at(std::size_t pos) const {
+    if (pos >= size()) throw std::out_of_range("pos >= size()");
     return _data[pos];
   }
 
@@ -260,44 +262,44 @@ public:
   /**@{*/
 
   /**
-   * ...
+   * Compares this string to another sequence of characters.
    */
   inline int compare(const str& other) const noexcept {
     return compare(other.data());
   }
 
   /**
-   * ...
+   * Compares this string to another sequence of characters.
    */
   inline int compare(const char* other) const noexcept {
     return std::strcmp(_data, other);
   }
 
   /**
-   * ...
+   * Copies a sequence of characters into a given buffer.
    */
   inline void copy(char* target, std::size_t length, std::size_t pos = 0) const {
     std::strncpy(target, _data + pos, length);
   }
 
   /**
-   * ...
+   * Finds the first occurrence of the given character.
    */
-  inline std::size_t find(const char c) const noexcept {
+  inline std::size_t find(char c) const noexcept {
     const char* const pos = std::strchr(_data, c);
     return pos ? pos - _data : npos;
   }
 
   /**
-   * ...
+   * Finds the last occurrence of the given character.
    */
-  inline std::size_t rfind(const char c) const noexcept {
+  inline std::size_t rfind(char c) const noexcept {
     const char* const pos = std::strrchr(_data, c);
     return pos ? pos - _data : npos;
   }
 
   /**
-   * ...
+   * Returns a substring of this string.
    */
   inline str substr(std::size_t pos) const noexcept {
     return str(_data + pos);
