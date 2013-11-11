@@ -319,6 +319,22 @@ public:
     return str(_data + pos);
   }
 
+  /**
+   * Returns a substring of this string.
+   */
+  inline str substr_from(char c) const noexcept {
+    const auto pos = find(c);
+    return (pos != npos) ? str(_data + pos) : str();
+  }
+
+  /**
+   * Returns a substring of this string.
+   */
+  inline str substr_after(char c) const noexcept {
+    const auto pos = find(c);
+    return (pos != npos) ? str(_data + pos + 1) : str();
+  }
+
   /**@}*/
 };
 

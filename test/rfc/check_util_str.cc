@@ -131,3 +131,11 @@ BOOST_AUTO_TEST_CASE(test_substr) {
     BOOST_CHECK_EQUAL(str(hello).substr(i).data(), hello + i);
   }
 }
+
+BOOST_AUTO_TEST_CASE(test_substr_from) {
+  BOOST_CHECK_EQUAL(str("foo/bar").substr_from('/').data(), "foo/bar" + 3);
+}
+
+BOOST_AUTO_TEST_CASE(test_substr_after) {
+  BOOST_CHECK_EQUAL(str("foo/bar").substr_after('/').data(), "foo/bar" + 4);
+}
