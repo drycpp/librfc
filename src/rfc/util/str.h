@@ -307,7 +307,7 @@ public:
   /**
    * Finds the first occurrence of the given string.
    */
-  inline std::size_t find(char* s, std::size_t pos = 0) const noexcept {
+  inline std::size_t find(const char* s, std::size_t pos = 0) const noexcept {
     const char* const found = std::strstr(_data + pos, s);
     return found ? found - _data : npos;
   }
