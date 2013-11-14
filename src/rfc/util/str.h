@@ -299,17 +299,25 @@ public:
   /**
    * Finds the first occurrence of the given character.
    */
-  inline std::size_t find(char c) const noexcept {
-    const char* const pos = std::strchr(_data, c);
-    return pos ? pos - _data : npos;
+  inline std::size_t find(char c, std::size_t pos = 0) const noexcept {
+    const char* const found = std::strchr(_data + pos, c);
+    return found ? found - _data : npos;
+  }
+
+  /**
+   * Finds the first occurrence of the given string.
+   */
+  inline std::size_t find(char* s, std::size_t pos = 0) const noexcept {
+    const char* const found = std::strstr(_data + pos, s);
+    return found ? found - _data : npos;
   }
 
   /**
    * Finds the last occurrence of the given character.
    */
-  inline std::size_t rfind(char c) const noexcept {
-    const char* const pos = std::strrchr(_data, c);
-    return pos ? pos - _data : npos;
+  inline std::size_t rfind(char c, std::size_t pos = 0) const noexcept {
+    const char* const found = std::strrchr(_data + pos, c);
+    return found ? found - _data : npos;
   }
 
   /**

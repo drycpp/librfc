@@ -120,10 +120,20 @@ BOOST_AUTO_TEST_CASE(test_find) {
   BOOST_CHECK(str(hello).find('?') == str::npos);
 }
 
+BOOST_AUTO_TEST_CASE(test_find_with_pos) {
+  BOOST_CHECK(str(hello).find('H', 1) == str::npos);
+  BOOST_CHECK_EQUAL(str(hello).find('l', 3), 3);
+  BOOST_CHECK_EQUAL(str(hello).find('l', 4), 10);
+}
+
 BOOST_AUTO_TEST_CASE(test_rfind) {
   BOOST_CHECK_EQUAL(str(hello).rfind('H'), 0);
   BOOST_CHECK_EQUAL(str(hello).rfind('l'), 10);
   BOOST_CHECK(str(hello).rfind('?') == str::npos);
+}
+
+BOOST_AUTO_TEST_CASE(test_rfind_with_pos) {
+  BOOST_CHECK(str(hello).rfind('l', 11) == str::npos);
 }
 
 BOOST_AUTO_TEST_CASE(test_substr) {
