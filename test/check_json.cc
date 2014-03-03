@@ -1,13 +1,12 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#define BOOST_TEST_MODULE json
-#include <boost/test/unit_test.hpp>
+#include "catch.hpp"
 
 #include <rfc/json.h>
 
 using namespace rfc4627;
 
-BOOST_AUTO_TEST_CASE(test_json_writer) {
+TEST_CASE("test_json_writer") {
   // @see http://tools.ietf.org/html/rfc4627#section-8
   json_writer json(stdout);
   json.begin_object();
