@@ -24,9 +24,9 @@ Current Status
 
 This table summarizes which RFC specifications are implemented at present:
 
-=============== ======== ==================================== ================
+=============== ======== ==================================== ==================
 Header          Spec     Description                          Status
-=============== ======== ==================================== ================
+=============== ======== ==================================== ==================
 <rfc/http.h>    RFC 2616 Hypertext Transfer Protocol HTTP/1.1 WIP
 <rfc/json.h>    RFC 4627 JavaScript Object Notation (JSON)    WIP
 <rfc/md5.h>     RFC 1321 The MD5 Message-Digest Algorithm     WIP
@@ -34,7 +34,7 @@ Header          Spec     Description                          Status
 <rfc/uri.h>     RFC 3986 Uniform Resource Identifier (URI)    WIP
 <rfc/utf8.h>    RFC 3629 UTF-8                                WIP
 <rfc/uuid.h>    RFC 4122 Universally Unique Identifier (UUID) WIP
-=============== ======== ==================================== ================
+=============== ======== ==================================== ==================
 
 Build Prerequisites
 -------------------
