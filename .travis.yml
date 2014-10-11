@@ -11,7 +11,21 @@ before_install:
 before_script:
   - ./autogen.sh
 script:
-  - ./configure && make && make check
+  - if [ "$COVERITY_SCAN_BRANCH" != 1 ]; then ./configure && make && make check; fi
 branches:
   only:
     - master
+    - coverity
+
+# https://scan.coverity.com/projects/3227
+env:
+  global:
+  - secure: "ec4mmJ7SGCDxa2j/dZ/5Yb+Hz5ZPHa3t7JuA/R++ezVlHIjlso4LFMH7H0mRFo9sQ+QRSnzMT5Gae5iMzcVrINndQoGXeULX7NefBjiC/4HTN7lV7eedgIaM9OE7x5zRJj0pQvicQHhHTAFhzPCqlbPNlajXNdpmC/jkb/DTmYk="
+addons:
+  coverity_scan:
+    project:
+      name: dryproject/librfc
+    notification_email: arto@bendiken.net
+    build_command_prepend: cov-configure --comptype gcc --compiler $CC && ./configure
+    build_command: make
+    branch_pattern: coverity

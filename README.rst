@@ -3,8 +3,11 @@ librfc: RFC implementations for C/C++
 
 .. image:: https://travis-ci.org/dryproject/librfc.png?branch=master
    :target: https://travis-ci.org/dryproject/librfc
-   :align: right
    :alt: Travis CI build status
+
+.. image:: https://scan.coverity.com/projects/3227/badge.svg
+   :target: https://scan.coverity.com/projects/3227
+   :alt: Coverity Scan build status
 
 ``librfc`` is a C/C++ shared library containing public domain implementations
 of core RFC data structures and algorithms written in C++11.
@@ -69,16 +72,17 @@ Elsewhere
 ---------
 
 Find this project at: GitHub_, Bitbucket_, Ohloh_, Freecode_, SourceForge_,
-`Travis CI`_, Twitter_, and Tumblr_.
+`Travis CI`_, `Coverity Scan`_, Twitter_, and Tumblr_.
 
-.. _GitHub:      http://github.com/dryproject/librfc
-.. _Bitbucket:   http://bitbucket.org/dryproject/librfc
-.. _Ohloh:       http://www.ohloh.net/p/librfc
-.. _Freecode:    http://freecode.com/projects/librfc
-.. _SourceForge: http://sourceforge.net/projects/librfc/
-.. _Travis CI:   http://travis-ci.org/dryproject/librfc
-.. _Twitter:     http://twitter.com/librfc
-.. _Tumblr:      http://librfc.tumblr.com/
+.. _GitHub:        http://github.com/dryproject/librfc
+.. _Bitbucket:     http://bitbucket.org/dryproject/librfc
+.. _Ohloh:         http://www.ohloh.net/p/librfc
+.. _Freecode:      http://freecode.com/projects/librfc
+.. _SourceForge:   http://sourceforge.net/projects/librfc/
+.. _Travis CI:     http://travis-ci.org/dryproject/librfc
+.. _Coverity Scan: http://scan.coverity.com/projects/3227
+.. _Twitter:       http://twitter.com/librfc
+.. _Tumblr:        http://librfc.tumblr.com/
 
 Author
 ------
