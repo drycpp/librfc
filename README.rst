@@ -1,7 +1,8 @@
-librfc: RFC implementations for C/C++
-=====================================
+*************************************
+librfc: RFC implementations for C++14
+*************************************
 
-.. image:: https://travis-ci.org/dryproject/librfc.png?branch=master
+.. image:: https://api.travis-ci.org/dryproject/librfc.svg?branch=master
    :target: https://travis-ci.org/dryproject/librfc
    :alt: Travis CI build status
 
@@ -13,7 +14,7 @@ librfc: RFC implementations for C/C++
 of core RFC data structures and algorithms written in C++11.
 
 Features
---------
+========
 
 * No runtime dependencies other than the system's C++ standard library.
 * No build prerequisites beyond the Autotools toolchain and a C++11 compiler.
@@ -23,7 +24,7 @@ Features
   usable in any context and for any purpose.
 
 Current Status
---------------
+==============
 
 This table summarizes which RFC specifications are implemented at present:
 
@@ -40,12 +41,16 @@ Header          Spec     Description                          Status
 =============== ======== ==================================== ==================
 
 Build Prerequisites
--------------------
+===================
 
-* Clang_ (>= 3.0) or GCC_ (>= 4.7)
+* Clang_ (>= 3.2) or GCC_ (>= 4.8)
 * Autoconf_ (>= 2.68)
 * Automake_ (>= 1.11)
 * Libtool_ (>= 2.2)
+
+.. note::
+
+   Older releases may work, but are not actively tested for.
 
 .. _Clang:    http://clang.llvm.org/
 .. _GCC:      http://gcc.gnu.org/
@@ -54,10 +59,10 @@ Build Prerequisites
 .. _Libtool:  http://www.gnu.org/software/libtool/
 
 Installation
-------------
+============
 
 Installation on Unix
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 ::
 
@@ -69,7 +74,7 @@ Installation on Unix
    $ sudo ldconfig                      # on Linux
 
 Elsewhere
----------
+=========
 
 Find this project at: GitHub_, Bitbucket_, Ohloh_, Freecode_, SourceForge_,
 `Travis CI`_, `Coverity Scan`_, Twitter_, and Tumblr_.
@@ -85,24 +90,24 @@ Find this project at: GitHub_, Bitbucket_, Ohloh_, Freecode_, SourceForge_,
 .. _Tumblr:        http://librfc.tumblr.com/
 
 Author
-------
+======
 
 This project is part of the `DRY <http://dryproject.org/>`_ initiative.
 
 * `Arto Bendiken <https://github.com/bendiken>`_ - http://ar.to/
 
 Donations
----------
+=========
 
 If you found this software useful and would like to encourage its
-maintenance and further development, please consider making a donation to
-the `Bitcoin`_ wallet address `15vNqz4kKWGjQmMv55KvuZwtbSkqXDx5AW`__.
+maintenance and further development, please consider making a $5 donation
+to the author(s) via Gratipay_ or Bitcoin_.
 
-.. _Bitcoin: http://en.wikipedia.org/wiki/Bitcoin
-.. __: bitcoin:15vNqz4kKWGjQmMv55KvuZwtbSkqXDx5AW?label=librfc.org&message=Donation
+.. _Gratipay: https://gratipay.com/bendiken/
+.. _Bitcoin:  bitcoin:1BahgMdZYkLYmauNeu2fJKYKmeLy9ysqur?label=librfc.org&message=Donation
 
 License
--------
+=======
 
 This is free and unencumbered public domain software. For more information,
 see http://unlicense.org/ or the accompanying ``UNLICENSE`` file.

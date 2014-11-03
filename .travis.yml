@@ -1,9 +1,10 @@
+# https://travis-ci.org/dryproject/librfc
 language: cpp
 compiler:
   - clang
   - gcc
 before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
   - sudo apt-get update -qq
   - if [ "$CXX" = "clang++" ]; then sudo apt-get install -qq libstdc++-4.8-dev; fi
   - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8; fi
@@ -20,7 +21,7 @@ branches:
 # https://scan.coverity.com/projects/3227
 env:
   global:
-  - secure: "ec4mmJ7SGCDxa2j/dZ/5Yb+Hz5ZPHa3t7JuA/R++ezVlHIjlso4LFMH7H0mRFo9sQ+QRSnzMT5Gae5iMzcVrINndQoGXeULX7NefBjiC/4HTN7lV7eedgIaM9OE7x5zRJj0pQvicQHhHTAFhzPCqlbPNlajXNdpmC/jkb/DTmYk="
+  - secure: "ec4mmJ7SGCDxa2j/dZ/5Yb+Hz5ZPHa3t7JuA/R++ezVlHIjlso4LFMH7H0mRFo9sQ+QRSnzMT5Gae5iMzcVrINndQoGXeULX7NefBjiC/4HTN7lV7eedgIaM9OE7x5zRJj0pQvicQHhHTAFhzPCqlbPNlajXNdpmC/jkb/DTmYk=" # COVERITY_SCAN_TOKEN
 addons:
   coverity_scan:
     project:
