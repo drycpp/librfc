@@ -297,6 +297,18 @@ public:
     std::strncpy(target, _data + pos, length);
   }
 
+  bool equal(const std::string& other) const noexcept {
+    return compare(other) == 0;
+  }
+
+  bool equal(const str& other) const noexcept {
+    return compare(other) == 0;
+  }
+
+  bool equal(const char* other) const noexcept {
+    return compare(other) == 0;
+  }
+
   /**
    * Finds the first occurrence of the given character.
    */
