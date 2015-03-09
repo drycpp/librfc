@@ -7,6 +7,7 @@
  * @file
  */
 
+#include <cctype>    /* for std::is*() */
 #include <cstddef>   /* for std::size_t */
 #include <cstring>   /* for std::mem*(), std::str*() */
 #include <stdexcept> /* for std::out_of_range */
@@ -87,42 +88,42 @@ public:
   /**
    * Returns a const-qualified iterator to the beginning of this string.
    */
-  inline const char* cbegin() const noexcept {
+  const char* cbegin() const noexcept {
     return begin();
   }
 
   /**
    * Returns a const-qualified iterator to the end of this string.
    */
-  inline const char* cend() const noexcept {
+  const char* cend() const noexcept {
     return end();
   }
 
   /**
    * Returns an iterator to the beginning of this string.
    */
-  inline char* begin() noexcept {
+  char* begin() noexcept {
     return _data;
   }
 
   /**
    * Returns a const-qualified iterator to the beginning of this string.
    */
-  inline const char* begin() const noexcept {
+  const char* begin() const noexcept {
     return _data;
   }
 
   /**
    * Returns an iterator to the end of this string.
    */
-  inline char* end() noexcept {
+  char* end() noexcept {
     return _data + size();
   }
 
   /**
    * Returns a const-qualified iterator to the end of this string.
    */
-  inline const char* end() const noexcept {
+  const char* end() const noexcept {
     return _data + size();
   }
 
@@ -140,28 +141,28 @@ public:
    * The string is empty in case the data pointer is `nullptr` or the first
    * character of the string is NUL.
    */
-  inline bool empty() const noexcept {
+  bool empty() const noexcept {
     return _data == nullptr || _data[0] == '\0';
   }
 
   /**
    * Clears this string by resetting the data pointer to `nullptr`.
    */
-  inline void clear() noexcept {
+  void clear() noexcept {
     _data = nullptr;
   }
 
   /**
    * Returns the byte length of this string.
    */
-  inline std::size_t length() const noexcept {
+  std::size_t length() const noexcept {
     return size();
   }
 
   /**
    * Returns the byte length of this string.
    */
-  inline std::size_t size() const noexcept {
+  std::size_t size() const noexcept {
     return _data ? std::strlen(_data) : 0;
   }
 
@@ -176,35 +177,35 @@ public:
   /**
    * Alias for `data()`.
    */
-  inline const char* c_str() const noexcept {
+  const char* c_str() const noexcept {
     return _data;
   }
 
   /**
    * Returns a pointer to the underlying C string data.
    */
-  inline const char* data() const noexcept {
+  const char* data() const noexcept {
     return _data;
   }
 
   /**
    * ...
    */
-  inline char& operator[](std::size_t pos) noexcept {
+  char& operator[](std::size_t pos) noexcept {
     return _data[pos];
   }
 
   /**
    * ...
    */
-  inline const char& operator[](std::size_t pos) const noexcept {
+  const char& operator[](std::size_t pos) const noexcept {
     return _data[pos];
   }
 
   /**
    * @throws std::out_of_range if `pos` >= `size()`
    */
-  inline char& at(std::size_t pos) {
+  char& at(std::size_t pos) {
     if (pos >= size()) throw std::out_of_range("pos >= size()");
     return _data[pos];
   }
@@ -212,7 +213,7 @@ public:
   /**
    * @throws std::out_of_range if `pos` >= `size()`
    */
-  inline const char& at(std::size_t pos) const {
+  const char& at(std::size_t pos) const {
     if (pos >= size()) throw std::out_of_range("pos >= size()");
     return _data[pos];
   }
@@ -220,28 +221,28 @@ public:
   /**
    * ...
    */
-  inline char& back() noexcept {
+  char& back() noexcept {
     return _data[size() - 1];
   }
 
   /**
    * ...
    */
-  inline const char& back() const noexcept {
+  const char& back() const noexcept {
     return _data[size() - 1];
   }
 
   /**
    * ...
    */
-  inline char& front() noexcept {
+  char& front() noexcept {
     return _data[0];
   }
 
   /**
    * ...
    */
-  inline const char& front() const noexcept {
+  const char& front() const noexcept {
     return _data[0];
   }
 
@@ -256,7 +257,7 @@ public:
   /**
    * Erases the last character of this string.
    */
-  inline void pop_back() noexcept {
+  void pop_back() noexcept {
     _data[size() - 1] = '\0';
   }
 
@@ -271,35 +272,35 @@ public:
   /**
    * Compares this string to another sequence of characters.
    */
-  inline int compare(const std::string& other) const noexcept {
+  int compare(const std::string& other) const noexcept {
     return compare(other.data());
   }
 
   /**
    * Compares this string to another sequence of characters.
    */
-  inline int compare(const str& other) const noexcept {
+  int compare(const str& other) const noexcept {
     return compare(other.data());
   }
 
   /**
    * Compares this string to another sequence of characters.
    */
-  inline int compare(const char* other) const noexcept {
+  int compare(const char* other) const noexcept {
     return std::strcmp(_data, other);
   }
 
   /**
    * Copies a sequence of characters into a given buffer.
    */
-  inline void copy(char* target, std::size_t length, std::size_t pos = 0) const {
+  void copy(char* target, std::size_t length, std::size_t pos = 0) const {
     std::strncpy(target, _data + pos, length);
   }
 
   /**
    * Finds the first occurrence of the given character.
    */
-  inline std::size_t find(char c, std::size_t pos = 0) const noexcept {
+  std::size_t find(char c, std::size_t pos = 0) const noexcept {
     const char* const found = std::strchr(_data + pos, c);
     return found ? found - _data : npos;
   }
@@ -307,7 +308,7 @@ public:
   /**
    * Finds the first occurrence of the given string.
    */
-  inline std::size_t find(const char* s, std::size_t pos = 0) const noexcept {
+  std::size_t find(const char* s, std::size_t pos = 0) const noexcept {
     const char* const found = std::strstr(_data + pos, s);
     return found ? found - _data : npos;
   }
@@ -315,7 +316,7 @@ public:
   /**
    * Finds the last occurrence of the given character.
    */
-  inline std::size_t rfind(char c, std::size_t pos = 0) const noexcept {
+  std::size_t rfind(char c, std::size_t pos = 0) const noexcept {
     const char* const found = std::strrchr(_data + pos, c);
     return found ? found - _data : npos;
   }
@@ -323,14 +324,14 @@ public:
   /**
    * Returns a substring of this string.
    */
-  inline str substr(std::size_t pos) const noexcept {
+  str substr(std::size_t pos) const noexcept {
     return str(_data + pos);
   }
 
   /**
    * Returns a substring of this string.
    */
-  inline str substr_from(char c) const noexcept {
+  str substr_from(char c) const noexcept {
     const auto pos = find(c);
     return (pos != npos) ? str(_data + pos) : str();
   }
@@ -338,7 +339,7 @@ public:
   /**
    * Returns a substring of this string.
    */
-  inline str substr_after(char c) const noexcept {
+  str substr_after(char c) const noexcept {
     const auto pos = find(c);
     return (pos != npos) ? str(_data + pos + 1) : str();
   }
