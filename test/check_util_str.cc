@@ -148,3 +148,13 @@ TEST_CASE("test_substr_from") {
 TEST_CASE("test_substr_after") {
   REQUIRE(str("foo/bar").substr_after('/').data() == "foo/bar" + 4);
 }
+
+TEST_CASE("test_has_prefix") {
+  REQUIRE(str{"foo/bar"}.has_prefix("foo/") == true);
+  REQUIRE(str{"foo/bar"}.has_prefix("/bar") == false);
+}
+
+TEST_CASE("test_has_suffix") {
+  REQUIRE(str{"foo/bar"}.has_suffix("/bar") == true);
+  REQUIRE(str{"foo/bar"}.has_suffix("foo/") == false);
+}

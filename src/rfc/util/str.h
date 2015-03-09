@@ -364,6 +364,17 @@ public:
 
   /**@{*/
 
+  bool has_prefix(const char* prefix) const noexcept {
+    return prefix && (find(prefix) == 0);
+  }
+
+  bool has_suffix(const char* suffix) const noexcept {
+    const auto string_size = size();
+    const auto suffix_size = suffix ? std::strlen(suffix) : 0;
+    return suffix && (string_size >= suffix_size) &&
+      (strcmp(_data + string_size - suffix_size, suffix) == 0);
+  }
+
   bool is(int (*predicate)(const int chr)) const noexcept {
     const char* s = _data;
     while (*s != '\0') {
