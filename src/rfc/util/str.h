@@ -345,6 +345,77 @@ public:
   }
 
   /**@}*/
+
+  /**
+   * @name Predicates
+   */
+
+  /**@{*/
+
+  bool is(int (*predicate)(const int chr)) const noexcept {
+    const char* s = _data;
+    while (*s != '\0') {
+      if (!predicate(*s)) {
+        return false;
+      }
+      s++; /* ASCII only */
+    }
+    return true;
+  }
+
+  bool is_alnum() const noexcept {
+    return is(isalnum);
+  }
+
+  bool is_alpha() const noexcept {
+    return is(isalpha);
+  }
+
+  bool is_ascii() const noexcept {
+    return is(isascii);
+  }
+
+  bool is_blank() const noexcept {
+    return is(isblank);
+  }
+
+  bool is_cntrl() const noexcept {
+    return is(iscntrl);
+  }
+
+  bool is_digit() const noexcept {
+    return is(isdigit);
+  }
+
+  bool is_graph() const noexcept {
+    return is(isgraph);
+  }
+
+  bool is_lower() const noexcept {
+    return is(islower);
+  }
+
+  bool is_print() const noexcept {
+    return is(isprint);
+  }
+
+  bool is_punct() const noexcept {
+    return is(ispunct);
+  }
+
+  bool is_space() const noexcept {
+    return is(isspace);
+  }
+
+  bool is_upper() const noexcept {
+    return is(isupper);
+  }
+
+  bool is_xdigit() const noexcept {
+    return is(isxdigit);
+  }
+
+  /**@}*/
 };
 
 #endif /* RFC_UTIL_STR_H */
